@@ -66,8 +66,8 @@ return [
         'INPP' => [
             'driver' => 'sqlsrv',
             'url' => env('DATABASE_URL2'),
-            'host' => 'uat.ifca.co.id',
-            'port' => '1436\SQL2019',
+            'host' => '172.16.1.3',
+            'port' => '1433',
             'database' => 'INPP_TEST',
             'username' => 'mgr',
             'password' => 'mgr',
