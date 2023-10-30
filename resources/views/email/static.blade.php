@@ -27,7 +27,7 @@
                         <tbody>
                             <tr>
                                 <td style="text-align: center; padding-bottom:25px">
-                                    <img width = "120" src="{{ url('public/images/LogoAntasariPlace.jpg') }}" alt="logo">
+                                    <img width = "120" src="{{ url('public/images/LogoAntasariPlace.jpg') " alt="logo">
                                         <p style="font-size: 16px; color: #026735; padding-top: 0px;">data['entity_name']</p>
                                 </td>
                             </tr>
@@ -36,42 +36,19 @@
                     <table style="width:100%;max-width:620px;margin:0 auto;background-color:#ffff67;">
                         <tbody>
                             <tr>
-                                <td>
-                                    <h5 style="padding: 30px 30px;text-align:left;margin-bottom: 24px; color: #000000; font-size: 20px; font-weight: 400; line-height: 28px;">Dear Mr./Mrs. data['user_name'], </h5>
-                                    <p style="padding-left: 30px;text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">Kindly review this Requisition : <br>
-                                        <table style="padding-left: 40px;width: 100%; text-align:left;">
-                                            <tr>
-                                                <td style="width: 120px;">Type</td>
-                                                <td>:</td>
-                                                <td>data_pr_type</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Document No.</td>
-                                                <td>:</td>
-                                                <td>data_doc_no</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Remarks</td>
-                                                <td>:</td>
-                                                <td>data_remarks</td>
-                                            </tr>
-                                        </table>
-                                    </p>
+                                <td style="padding: 30px 30px">
+                                    <h5 style="text-align:left;margin-bottom: 24px; color: #000000; font-size: 20px; font-weight: 400; line-height: 28px;">Dear data['user_name'] , </h5>
+                                    <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">Request No. data['doc_no']  - Has Been Approved</p><br>
                                     <br>
-                                    <p style="padding-left: 30px;text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px">
+                                    <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px">
                                         <b style="font-style:italic;">Please find the attached file for your reference : </b><br>
                                         
                                     </p>
-                                    <br><p style="padding-left: 30px;text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">
-                                        <b>Thank you,</b><br>
-                                        data['sender']
+                                    <br>
+                                    <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">
+                                        <b>Thanks & Regards,</b><br>
+                                        data['sender'] 
                                     </p><br>
-                                    <a href="" style="display: inline-block; font-size: 13px; font-weight: 600; line-height: 20px; text-align: center; text-decoration: none; text-transform: uppercase; padding: 10px 40px; background-color: #1ee0ac; border-radius: 4px; color: #ffffff;">Approve</a>
-                                    <a href="" style="display: inline-block; font-size: 13px; font-weight: 600; line-height: 20px; text-align: center; text-decoration: none; text-transform: uppercase; padding: 10px 40px; background-color: #1ee0ac; border-radius: 4px; color: #ffffff;">Approve</a>
-                                    <a href="" style="display: inline-block; font-size: 13px; font-weight: 600; line-height: 20px; text-align: center; text-decoration: none; text-transform: uppercase; padding: 10px 40px; background-color: #1ee0ac; border-radius: 4px; color: #ffffff;">Approve</a>
-                                    <br><br><br><div style="text-align:left;color: #000000; font-size: 13px;">
-                                        <i>note : do not reply this email</i>
-                                    </div>
                                 </td>
                             </tr>
                         </tbody>

@@ -41,7 +41,7 @@
                                     <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">Request No. {{ $data['doc_no'] }} - Has Been Rejected.</p><br>
                                     <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">Reason : {{ $data['reason'] }}</p>
                                     <br>
-                                    <p style="padding-left: 30px;text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px">
+                                    <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px">
                                         <b style="font-style:italic;">Please find the attached file for your reference : </b><br>
                                         @if ($data['url_file'] != 'EMPTY')
                                             @if ( is_array($data['url_file']) || is_object($data['url_file']) )
