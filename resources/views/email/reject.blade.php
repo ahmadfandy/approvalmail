@@ -41,6 +41,19 @@
                                     <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">Request No. {{ $data['doc_no'] }} - Has Been Rejected.</p><br>
                                     <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">Reason : {{ $data['reason'] }}</p>
                                     <br>
+                                    <p style="padding-left: 30px;text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px">
+                                        <b style="font-style:italic;">Please find the attached file for your reference : </b><br>
+                                        @if ($data['url_file'] != 'EMPTY')
+                                            @if ( is_array($data['url_file']) || is_object($data['url_file']) )
+                                                @foreach ($data['url_file'] as $tampil)
+                                                    <a href={{ $tampil }} target="_blank">{{ trim(str_replace('%20', ' ',substr($tampil, strrpos($tampil, '/') + 1))) }}</a><br><br>
+                                                @endforeach
+                                            @else
+                                                <a href={{ $data['url_file'] }} target="_blank">{{ trim(str_replace('%20', ' ',substr($data['url_file'], strrpos($data['url_file'], '/') + 1))) }}</a><br><br>
+                                            @endif
+                                        @endif
+                                    </p>
+                                    <br>
                                     <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">
                                         <b>Thanks & Regards,</b><br>
                                         {{ $data['sender'] }}
