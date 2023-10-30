@@ -38,20 +38,7 @@
                             <tr>
                                 <td style="padding: 30px 30px">
                                     <h5 style="text-align:left;margin-bottom: 24px; color: #000000; font-size: 20px; font-weight: 400; line-height: 28px;">Dear {{ $data['user_name'] }}, </h5>
-                                    <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">{{ $data['descs'] }}</p><br>
-                                    <br>
-                                    <p style="padding-left: 30px;text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px">
-                                        <b style="font-style:italic;">Please find the attached file for your reference : </b><br>
-                                        @if ($data['url_file'] != 'EMPTY')
-                                            @if ( is_array($data['url_file']) || is_object($data['url_file']) )
-                                                @foreach ($data['url_file'] as $tampil)
-                                                    <a href={{ $tampil }} target="_blank">{{ trim(str_replace('%20', ' ',substr($tampil, strrpos($tampil, '/') + 1))) }}</a><br><br>
-                                                @endforeach
-                                            @else
-                                                <a href={{ $data['url_file'] }} target="_blank">{{ trim(str_replace('%20', ' ',substr($data['url_file'], strrpos($data['url_file'], '/') + 1))) }}</a><br><br>
-                                            @endif
-                                        @endif
-                                    </p>
+                                    <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">Request No. {{ $data['doc_no'] }} - Has Been Approved</p><br>
                                     <br>
                                     <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">
                                         <b>Thanks & Regards,</b><br>
