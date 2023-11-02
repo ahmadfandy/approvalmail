@@ -30,7 +30,9 @@
                             <tr>
                                 <td style="text-align: center; padding-bottom:25px">
                                     <img width="120" src="{{ url('public/images/' . $logo) }}" alt="logo">
-                                        <p style="font-size: 16px; color: #026735; padding-top: 0px;"><?php echo $entity_name?></p>
+                                </td>
+                                <td style="text-align: right; padding-bottom:25px">
+                                        <p style="font-size: 16px; color: #026735; padding-top: 0px;">data['entity_name']</p>
                                 </td>
                             </tr>
                         </tbody>

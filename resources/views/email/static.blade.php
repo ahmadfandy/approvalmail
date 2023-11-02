@@ -26,8 +26,10 @@
                     <table style="width:100%;max-width:620px;margin:0 auto;">
                         <tbody>
                             <tr>
-                                <td style="text-align: center; padding-bottom:25px">
-                                    <img width = "120" src="{{ url('public/images/LogoAntasariPlace.jpg') " alt="logo">
+                                <td style="text-align: left; padding-bottom:25px">
+                                    <img width = "120" src="http://localhost/approvalmail/public/images/LogoAntasariPlace.jpg" alt="logo">
+                                </td>
+                                <td style="text-align: right; padding-bottom:25px">
                                         <p style="font-size: 16px; color: #026735; padding-top: 0px;">data['entity_name']</p>
                                 </td>
                             </tr>
