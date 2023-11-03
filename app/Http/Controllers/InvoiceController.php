@@ -69,6 +69,8 @@ class InvoiceController extends Controller
 
     public function changestatus($entity_cd='', $trx_type='', $doc_no='', $user_id='', $level_no='', $status='', $profile='', $entity_name='', $logo='', $module='')
     {
+        $entity_name_r = str_replace('+', ' ', $entity_name);
+        $module_r = str_replace('+', ' ', $module);
         $where2 = array(
             'doc_no'        => $doc_no,
             'status'        => 'A',
@@ -83,7 +85,7 @@ class InvoiceController extends Controller
         ->get();
 
         if(count($query)>0) {
-            $msg = 'You Have Already Made a Request to '.$module.' '.$doc_no ;
+            $msg = 'You Have Already Made a Request to '.$module_r.' '.$doc_no ;
             $notif = 'Restricted !';
             $st  = 'OK';
             $image = "double_approve.png";
@@ -92,7 +94,7 @@ class InvoiceController extends Controller
                 "St" => $st,
                 "notif" => $notif,
                 "image" => $image,
-                "entity_name"   => $entity_name,
+                "entity_name"   => $result,
                 "logo"   => $logo
             );
             return view("email.after", $msg1);
@@ -111,12 +113,12 @@ class InvoiceController extends Controller
                 $sth->bindParam(8, $profile);
                 $sth->execute();
                 if ($sth == true) {
-                    $msg = "You Have Successfully Approved the  ".$module." ".$doc_no ;
+                    $msg = "You Have Successfully Approved the  ".$module_r." ".$doc_no ;
                     $notif = 'Approved !';
                     $st = 'OK';
                     $image = "approved.png";
                 } else {
-                    $msg = "You Failed to Approved the  ".$module." ".$doc_no ;
+                    $msg = "You Failed to Approved the  ".$module_r." ".$doc_no ;
                     $notif = 'Fail to Approve !';
                     $st = 'OK';
                     $image = "reject.png";
@@ -126,7 +128,7 @@ class InvoiceController extends Controller
                     "St" => $st,
                     "image" => $image,
                     "notif" => $notif,
-                    "entity_name"   => $entity_name,
+                    "entity_name"   => $entity_name_r,
                     "logo"   => $logo
                 );
                 return view("email.after", $msg1);
@@ -153,9 +155,9 @@ class InvoiceController extends Controller
                     'doc_no'    => $doc_no, 
                     'user_id'    => $user_id, 
                     'level_no'  => $level_no,
-                    'entity_name'    => $entity_name, 
+                    'entity_name'    => $entity_name_r, 
                     'logo'  => $logo,
-                    'module'  => $module,
+                    'module'  => $module_r,
                     'status'     =>$status, 
                     'profile'    =>$profile
                 );

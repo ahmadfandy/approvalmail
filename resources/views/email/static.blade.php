@@ -30,7 +30,7 @@
                                     <img width = "120" src="http://localhost/approvalmail/public/images/LogoAntasariPlace.jpg" alt="logo">
                                 </td>
                                 <td style="text-align: right; padding-bottom:25px">
-                                        <p style="font-size: 16px; color: #026735; padding-top: 0px;">data['entity_name']</p>
+                                        <p style="font-size: 16px; color: #026735; padding-top: 0px;">{{ $data['entity_name'] }}</p>
                                 </td>
                             </tr>
                         </tbody>
