@@ -94,7 +94,7 @@ class InvoiceController extends Controller
                 "St" => $st,
                 "notif" => $notif,
                 "image" => $image,
-                "entity_name"   => $result,
+                "entity_name"   => $entity_name_r,
                 "logo"   => $logo
             );
             return view("email.after", $msg1);
