@@ -23,6 +23,7 @@ class InvoiceController extends Controller
 
         $newurl2 = explode(";", trim(str_replace(' ','',$request->url_file)));
         $file_name2 = explode(";", trim(str_replace(' ','',$request->file_name)));
+        $email_addr = explode(";", trim(str_replace(' ','',$request->email_addr)));
 
         foreach ($newurl2 as $show)
         {
@@ -33,38 +34,41 @@ class InvoiceController extends Controller
         {
             $link2[] = $show2;
         }
-        
-        $dataEmail = array(
-            'entity_cd'     => $request->entity_cd,
-            'trx_type'    => $request->trx_type,
-            'doc_no'        => $request->doc_no,
-            'level_no'      => $request->level_no,
-            'user_id'       => $request->user_id,
-            'status'        => $request->status,
-            'reason'        => $request->reason,
-            'profile_name'        => $request->profile_name,
-            'descs'        => $request->descs,
-            'logo'          => $request->logo,
-            'pr_type'          => $request->pr_type,
-            'module'          => $request->module,
-            'user_name'        => $request->user_name,
-            'url_file'        => $link,
-            'file_name'        => $link2,
-            'sender'        => $request->sender,
-            'entity_name'        => $request->entity_name,
-            'email_addr'        => $request->email_addr,
-            'link'          => 'porequest'
-        );
 
-        $sendToEmail = strtolower($request->email_addr);
-        if(isset($sendToEmail) && !empty($sendToEmail) && filter_var($sendToEmail, FILTER_VALIDATE_EMAIL))
-        {
-            Mail::to($sendToEmail)
-                ->send(new InvoiceMail($dataEmail));
-            $callback['Error'] = false;
-            $callback['Pesan'] = 'sendToEmail';
-            echo json_encode($callback);
+        foreach ($email_addr as $email) {
+            $dataEmail = array(
+                'entity_cd'     => $request->entity_cd,
+                'trx_type'    => $request->trx_type,
+                'doc_no'        => $request->doc_no,
+                'level_no'      => $request->level_no,
+                'user_id'       => $request->user_id,
+                'status'        => $request->status,
+                'reason'        => $request->reason,
+                'profile_name'        => $request->profile_name,
+                'descs'        => $request->descs,
+                'logo'          => $request->logo,
+                'pr_type'          => $request->pr_type,
+                'module'          => $request->module,
+                'user_name'        => $request->user_name,
+                'url_file'        => $link,
+                'file_name'        => $link2,
+                'sender'        => $request->sender,
+                'entity_name'        => $request->entity_name,
+                'email_addr'        => $email,
+                'link'          => 'porequest'
+            );
+
+            $sendToEmail = strtolower($email);
+            if(isset($sendToEmail) && !empty($sendToEmail) && filter_var($sendToEmail, FILTER_VALIDATE_EMAIL))
+            {
+                Mail::to($sendToEmail)
+                    ->send(new InvoiceMail($dataEmail));
+                $callback['Error'] = false;
+                $callback['Pesan'] = 'sendToEmail';
+                echo json_encode($callback);
+            }
         }
+        
     }
 
     public function changestatus($entity_cd='', $trx_type='', $doc_no='', $user_id='', $level_no='', $status='', $profile='', $entity_name='', $logo='', $module='')
