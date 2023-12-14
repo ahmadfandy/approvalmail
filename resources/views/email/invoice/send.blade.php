@@ -57,6 +57,11 @@
                                                 <td>:</td>
                                                 <td>{{ $data['descs'] }}</td>
                                             </tr>
+					    <tr>
+						<td>Total</td>
+						<td>:</td>
+						<td>Rp. {{ $data['amount'] }}</td>
+					   </tr>
                                         </table>
                                     </p>
                                     <br>

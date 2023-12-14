@@ -21,7 +21,19 @@ class EndingController extends Controller
             'Status' => 200
         );
 
+	$newurl2 = explode(";", trim(str_replace(' ','',$request->url_file)));
+	$filename2 =explode(";", trim(str_replace(' ','',$request->file_name)));
         $email_addr = explode(";", trim(str_replace(' ','',$request->email_addr)));
+
+	foreach($newurl2 as $show)
+	{
+		$link[]=$show;
+	}
+
+	foreach($filename2 as $show2)
+	{
+		$link2[]=$show2;
+	}
 
         foreach ($email_addr as $email) {
             $dataEmail = array(
@@ -36,8 +48,8 @@ class EndingController extends Controller
                 'descs'        => $request->descs,
                 'logo'          => $request->logo,
                 'user_name'        => $request->user_name,
-                'url_file'        => $request->url_file,
-                'file_name'        => $request->file_name,
+                'url_file'        => $link,
+                'file_name'        => $link2,
                 'sender'        => $request->sender,
                 'entity_name'        => $request->entity_name,
                 'email_addr'        => $email,
