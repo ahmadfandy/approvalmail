@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\InvoiceController as Invoice;
 use App\Http\Controllers\EndingController as Ending;
+use App\Http\Controllers\ApController as Ap;
+use App\Http\Controllers\LastController as Last;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +27,10 @@ Route::POST('/porequest', [Invoice::class, 'mail']);
 Route::GET('/porequest/{entity_cd}/{trx_type}/{doc_no}/{user_id}/{level_no}/{status}/{profile}/{entity_name}/{logo}/{module}', [Invoice::class, 'changestatus']);
 Route::POST('/porequest/update', [Invoice::class, 'update']);
 
+Route::POST('/ap', [Ap::class, 'mail']);
+Route::GET('/ap/{entity_cd}/{trx_type}/{doc_no}/{user_id}/{level_no}/{status}/{profile}/{flag}/{entity_name}/{logo}/{module}', [Ap::class, 'changestatus']);
+Route::POST('/ap/update', [Ap::class, 'update']);
+
 Route::POST('/ending', [Ending::class, 'mail']);
+Route::POST('/last', [Last::class, 'mail']);
 

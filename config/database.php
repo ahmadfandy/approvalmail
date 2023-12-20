@@ -78,6 +78,21 @@ return [
             'prefix_indexes' => true,
         ],
 
+        'INPP_EMAIL' => [
+            'driver' => 'sqlsrv',
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_HOST4', 'localhost'),
+            'port' => env('DB_PORT4', '1433'),
+            'database' => env('DB_DATABASE4', 'forge'),
+            'username' => env('DB_USERNAME4', 'forge'),
+            'password' => env('DB_PASSWORD4', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'encrypt' => 'yes',
+            'trust_server_certificate' => true,            
+            'prefix_indexes' => true,
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
