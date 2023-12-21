@@ -50,7 +50,7 @@ class InvoiceController extends Controller
                 'pr_type'          => $request->pr_type,
                 'module'          => $request->module,
                 'amount'	  => $request->amount,
-		'user_name'        => $request->user_name,
+		        'user_name'        => $request->user_name,
                 'url_file'        => $link,
                 'file_name'        => $link2,
                 'sender'        => $request->sender,
