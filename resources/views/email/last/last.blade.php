@@ -52,11 +52,7 @@
                                                 <td>:</td>
                                                 <td>{{ $data['descs'] }}</td>
                                             </tr>
-                                            <tr>
-                                                <td>Total</td>
-                                                <td>:</td>
-                                                <td>RP. {{ $data['amount'] }}</td>
-                                            </tr>
+                              
                                         </table>
                                     </p><br>
                                     <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 18px;">Has Been Approved</p>
