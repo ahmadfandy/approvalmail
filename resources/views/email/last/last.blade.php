@@ -55,7 +55,7 @@
                               
                                         </table>
                                     </p><br>
-                                    <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 18px;">Has Been Approved</p>
+                                    <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 18px;"><b>Has Been Approved</b></p>
                                     <br>
                                     <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px">
                                         <b style="font-style:italic;">Please find the attached file for your reference : </b><br>
