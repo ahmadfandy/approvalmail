@@ -43,7 +43,7 @@
                                     <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">
                                     <table style="padding-left: 40px;width: 100%; text-align:left;">
                                             <tr>
-                                                <td>Budget No.</td>
+                                                <td>{{ $data['module'] }} No.</td>
                                                 <td>:</td>
                                                 <td>{{ $data['doc_no'] }}</td>
                                             </tr>
@@ -51,6 +51,11 @@
                                                 <td>Remarks</td>
                                                 <td>:</td>
                                                 <td>{{ $data['descs'] }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total</td>
+                                                <td>:</td>
+                                                <td>RP. {{ $data['amount'] }}</td>
                                             </tr>
                               
                                         </table>
