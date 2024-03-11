@@ -40,26 +40,7 @@
                             <tr>
                                 <td style="padding: 30px 30px">
                                     <h5 style="text-align:left;margin-bottom: 24px; color: #000000; font-size: 20px; font-weight: 400; line-height: 28px;">Dear {{ $data['user_name'] }}, </h5>
-                                    <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">
-                                    <table style="padding-left: 40px;width: 100%; text-align:left;">
-                                            <tr>
-                                                <td>Budget No.</td>
-                                                <td>:</td>
-                                                <td>{{ $data['doc_no'] }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Remarks</td>
-                                                <td>:</td>
-                                                <td>{{ $data['descs'] }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Total</td>
-                                                <td>:</td>
-                                                <td>RP. {{ $data['amount'] }}</td>
-                                            </tr>
-                                        </table>
-                                    </p><br>
-                                    <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 18px;">Has Been Approved</p>
+                                    <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">{{ $data['module'] }} No. {{ $data['doc_no'] }} - Has Been Approved</p><br>
                                     <br>
                                     <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px">
                                         <b style="font-style:italic;">Please find the attached file for your reference : </b><br>
