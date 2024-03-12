@@ -33,15 +33,19 @@ class LastMail extends Mailable
     public function build()
     {
         if ($this->dataEmail['status'] == 'M') {
-            return $this->subject($this->dataEmail['module'].' No.  '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
+            return $this->subject($this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.last.modify')
                     ->with(['data' => $this->dataEmail]);
         } else if ($this->dataEmail['status'] == 'R') {
-            return $this->subject($this->dataEmail['module'].' No.  '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
+            return $this->subject($this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.last.reject')
                     ->with(['data' => $this->dataEmail]);
+        }else if ($this->dataEmail['flag'] == 'K') {
+            return $this->subject($this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
+                    ->view('email.contract.last')
+                    ->with(['data' => $this->dataEmail]);
         } else {
-            return $this->subject($this->dataEmail['module'].' No.  '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
+            return $this->subject($this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.last.last')
                     ->with(['data' => $this->dataEmail]);
         }

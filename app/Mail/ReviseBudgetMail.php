@@ -32,7 +32,7 @@ class ReviseBudgetMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Need Approval Revise Budget No'.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
+        return $this->subject('Need Approval Revise Budget No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.revisebudget.send')
                     ->with(['data' => $this->dataEmail]);
     }

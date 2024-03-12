@@ -32,7 +32,7 @@ class VoMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Need Approval Variation Order No'.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
+        return $this->subject('Need Approval Variation Order No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.vo.send')
                     ->with(['data' => $this->dataEmail]);
     }

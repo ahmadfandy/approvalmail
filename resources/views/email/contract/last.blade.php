@@ -30,7 +30,7 @@
                                     <img width="120" src="{{ url('public/images/' . $data['logo']) }}" alt="logo">
                                 </td>
                                 <td style="text-align: right; padding-bottom:25px">
-                                        <p style="font-size: 16px; color: #026735; padding-top: 0px;">{{ $data['entity_name'] }}</p>
+                                        <p style="font-size: 16px; color: #026735; padding-top: 0px;"><?php echo $data['entity_name']; ?></p>
                                 </td>
                             </tr>
                         </tbody>
@@ -38,12 +38,12 @@
                     <table style="width:100%;max-width:620px;margin:0 auto;background-color:#ffff67;">
                         <tbody>
                             <tr>
-                                <td>
-                                    <h5 style="padding: 30px 30px;text-align:left;margin-bottom: 24px; color: #000000; font-size: 20px; font-weight: 400; line-height: 28px;">Dear Mr./Mrs. {{ $data['user_name'] }}, </h5>
-                                    <p style="padding-left: 30px;text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">Kindly review this Contract : <br>
-                                        <table style="padding-left: 40px;width: 100%; text-align:left;">
+                                <td style="padding: 30px 30px">
+                                    <h5 style="text-align:left;margin-bottom: 24px; color: #000000; font-size: 20px; font-weight: 400; line-height: 28px;">Dear {{ $data['user_name'] }}, </h5>
+                                    <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">
+                                    <table style="padding-left: 40px;width: 100%; text-align:left;">
                                             <tr>
-                                                <td>Contract No.</td>
+                                                <td>{{ $data['module'] }} No.</td>
                                                 <td>:</td>
                                                 <td>{{ $data['contract_ref_no'] }}</td>
                                             </tr>
@@ -57,10 +57,12 @@
                                                 <td>:</td>
                                                 <td>RP. {{ $data['amount'] }}</td>
                                             </tr>
+                              
                                         </table>
-                                    </p>
+                                    </p><br>
+                                    <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 18px;"><b>Has Been Approved</b></p>
                                     <br>
-                                    <p style="padding-left: 30px;text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px">
+                                    <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px">
                                         <b style="font-style:italic;">Please find the attached file for your reference : </b><br>
                                         @if ($data['url_file'] != 'EMPTY')
                                             @if ( is_array($data['url_file']) || is_object($data['url_file']) )
@@ -72,16 +74,11 @@
                                             @endif
                                         @endif
                                     </p>
-                                    <br><p style="padding-left: 30px;text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">
-                                        <b>Thank you,</b><br>
+                                    <br>
+                                    <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">
+                                        <b>Thanks & Regards,</b><br>
                                         {{ $data['sender'] }}
                                     </p><br>
-                                    <a href="{{ url('api') }}/{{ $data['link'] }}/{{ $data['entity_cd'] }}/{{ $data['project_no'] }}/{{ $data['trx_type'] }}/{{ $data['doc_no'] }}/{{ $data['user_id'] }}/{{ $data['level_no'] }}/A/{{ $data['profile_name'] }}/{{ $data['flag'] }}/{{ $data['entity_name'] }}/{{ $data['logo'] }}/{{ $data['module'] }}" style="display: inline-block; font-size: 13px; font-weight: 600; line-height: 20px; text-align: center; text-decoration: none; text-transform: uppercase; padding: 10px 40px; background-color: #1ee0ac; border-radius: 4px; color: #ffffff;">Approve</a>
-                                    <a href="{{ url('api') }}/{{ $data['link'] }}/{{ $data['entity_cd'] }}/{{ $data['project_no'] }}/{{ $data['trx_type'] }}/{{ $data['doc_no'] }}/{{ $data['user_id'] }}/{{ $data['level_no'] }}/R/{{ $data['profile_name'] }}/{{ $data['flag'] }}/{{ $data['entity_name'] }}/{{ $data['logo'] }}/{{ $data['module'] }}" style="display: inline-block; font-size: 13px; font-weight: 600; line-height: 20px; text-align: center; text-decoration: none; text-transform: uppercase; padding: 10px 40px; background-color: #f4bd0e; border-radius: 4px; color: #ffffff;">Modify</a>
-                                    <a href="{{ url('api') }}/{{ $data['link'] }}/{{ $data['entity_cd'] }}/{{ $data['project_no'] }}/{{ $data['trx_type'] }}/{{ $data['doc_no'] }}/{{ $data['user_id'] }}/{{ $data['level_no'] }}/C/{{ $data['profile_name'] }}/{{ $data['flag'] }}/{{ $data['entity_name'] }}/{{ $data['logo'] }}/{{ $data['module'] }}" style="display: inline-block; font-size: 13px; font-weight: 600; line-height: 20px; text-align: center; text-decoration: none; text-transform: uppercase; padding: 10px 40px; background-color: #e85347; border-radius: 4px; color: #ffffff;">Reject</a>
-                                    <br><br><br><div style="text-align:left;color: #000000; font-size: 13px;">
-                                        <i>*note : do not reply this email</i>
-                                    </div>
                                 </td>
                             </tr>
                         </tbody>
