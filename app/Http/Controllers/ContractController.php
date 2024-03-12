@@ -51,7 +51,7 @@ class ContractController extends Controller
                 'amount'        => $request->amount,
                 'logo'          => $request->logo,
                 'module'        => $request->module,
-                'contract_ref_no' => $request->contract_ref_no,
+                'contract_ref_no'        => $request->contract_ref_no,
                 'user_name'     => $request->user_name,
                 'url_file'      => $link,
                 'file_name'     => $link2,
@@ -188,6 +188,7 @@ class ContractController extends Controller
         $flag = $request->flag;
         $reason = $request->reason;
         $module = $request->module;
+        $contract_ref_no = $request->contract_ref_no;
         $entity_name = $request->entity_name;
         $logo = $request->logo;
         $pdo = DB::connection('INPP_EMAIL')->getPdo();

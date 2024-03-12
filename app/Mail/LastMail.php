@@ -41,7 +41,7 @@ class LastMail extends Mailable
                     ->view('email.last.reject')
                     ->with(['data' => $this->dataEmail]);
         }else if ($this->dataEmail['flag'] == 'K') {
-            return $this->subject($this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
+            return $this->subject($this->dataEmail['module'].' No : '.$this->dataEmail['contract_ref_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.contract.last')
                     ->with(['data' => $this->dataEmail]);
         } else {
