@@ -74,7 +74,7 @@ class ContractController extends Controller
         
     }
 
-    public function changestatus($entity_cd='',$project_no='', $trx_type='', $doc_no='', $user_id='', $level_no='', $status='', $profile='', $flag='', $entity_name='', $logo='', $module='', $contract_ref_no='')
+    public function changestatus($entity_cd='',$project_no='', $trx_type='', $doc_no='', $user_id='', $level_no='', $status='', $profile='', $flag='', $entity_name='', $logo='', $module='')
     {
         $entity_name_r = str_replace('+', ' ', $entity_name);
         $module_r = str_replace('+', ' ', $module);
@@ -92,7 +92,7 @@ class ContractController extends Controller
         ->get();
 
         if(count($query)>0) {
-            $msg = 'You Have Already Made a Request to '.$module_r.' '.$contract_ref_no ;
+            $msg = 'You Have Already Made a Request to '.$module_r.' '.$doc_no ;
             $notif = 'Restricted !';
             $st  = 'OK';
             $image = "double_approve.png";
@@ -121,12 +121,12 @@ class ContractController extends Controller
                 $sth->bindParam(9, $flag);
                 $sth->execute();
                 if ($sth == true) {
-                    $msg = "You Have Successfully Approved the  ".$module_r." ".$contract_ref_no ;
+                    $msg = "You Have Successfully Approved the  ".$module_r." ".$doc_no ;
                     $notif = 'Approved !';
                     $st = 'OK';
                     $image = "approved.png";
                 } else {
-                    $msg = "You Failed to Approved the  ".$module_r." ".$contract_ref_no ;
+                    $msg = "You Failed to Approved the  ".$module_r." ".$doc_no ;
                     $notif = 'Fail to Approve !';
                     $st = 'OK';
                     $image = "reject.png";
@@ -209,13 +209,13 @@ class ContractController extends Controller
             } else if ($status == "C"){
                 $text = 'Rejected';
             }
-            $msg = "You Have Successfully Made a ".$text." Request on ".$module." ".$contract_ref_no." with a reason " .$reason;
+            $msg = "You Have Successfully Made a ".$text." Request on ".$module." ".$doc_no." with a reason " .$reason;
             $notif = 'Revised !';
             $st = 'OK';
             $image = "revise.png";
         } else {
             if ($status == 'R') {
-                $msg = "You Failed to Make a ".$text." Request on ".$module." ".$contract_ref_no;
+                $msg = "You Failed to Make a ".$text." Request on ".$module." ".$doc_no;
                 $notif = 'Fail to Revised !';
                 $st = 'OK';
                 $image = "reject.png";

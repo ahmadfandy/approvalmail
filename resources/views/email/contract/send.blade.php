@@ -43,6 +43,12 @@
                                     <p style="padding-left: 30px;text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">Kindly review this Contract : <br>
                                         <table style="padding-left: 40px;width: 100%; text-align:left;">
                                             <tr>
+                                                <td>Doc No.</td>
+                                                <td>:</td>
+                                                <td>{{ $data['doc_no'] }}</td>
+                                            </tr>
+                                        
+                                            <tr>
                                                 <td>Contract No.</td>
                                                 <td>:</td>
                                                 <td>{{ $data['contract_ref_no'] }}</td>
@@ -76,9 +82,9 @@
                                         <b>Thank you,</b><br>
                                         {{ $data['sender'] }}
                                     </p><br>
-                                    <a href="{{ url('api') }}/{{ $data['link'] }}/{{ $data['entity_cd'] }}/{{ $data['project_no'] }}/{{ $data['trx_type'] }}/{{ $data['doc_no'] }}/{{ $data['user_id'] }}/{{ $data['level_no'] }}/A/{{ $data['profile_name'] }}/{{ $data['flag'] }}/{{ $data['entity_name'] }}/{{ $data['logo'] }}/{{ $data['module'] }}/{{ $data['contract_ref_no'] }}" style="display: inline-block; font-size: 13px; font-weight: 600; line-height: 20px; text-align: center; text-decoration: none; text-transform: uppercase; padding: 10px 40px; background-color: #1ee0ac; border-radius: 4px; color: #ffffff;">Approve</a>
-                                    <a href="{{ url('api') }}/{{ $data['link'] }}/{{ $data['entity_cd'] }}/{{ $data['project_no'] }}/{{ $data['trx_type'] }}/{{ $data['doc_no'] }}/{{ $data['user_id'] }}/{{ $data['level_no'] }}/R/{{ $data['profile_name'] }}/{{ $data['flag'] }}/{{ $data['entity_name'] }}/{{ $data['logo'] }}/{{ $data['module'] }}/{{ $data['contract_ref_no'] }}" style="display: inline-block; font-size: 13px; font-weight: 600; line-height: 20px; text-align: center; text-decoration: none; text-transform: uppercase; padding: 10px 40px; background-color: #f4bd0e; border-radius: 4px; color: #ffffff;">Modify</a>
-                                    <a href="{{ url('api') }}/{{ $data['link'] }}/{{ $data['entity_cd'] }}/{{ $data['project_no'] }}/{{ $data['trx_type'] }}/{{ $data['doc_no'] }}/{{ $data['user_id'] }}/{{ $data['level_no'] }}/C/{{ $data['profile_name'] }}/{{ $data['flag'] }}/{{ $data['entity_name'] }}/{{ $data['logo'] }}/{{ $data['module'] }}/{{ $data['contract_ref_no'] }}" style="display: inline-block; font-size: 13px; font-weight: 600; line-height: 20px; text-align: center; text-decoration: none; text-transform: uppercase; padding: 10px 40px; background-color: #e85347; border-radius: 4px; color: #ffffff;">Reject</a>
+                                    <a href="{{ url('api') }}/{{ $data['link'] }}/{{ $data['entity_cd'] }}/{{ $data['project_no'] }}/{{ $data['trx_type'] }}/{{ $data['doc_no'] }}/{{ $data['user_id'] }}/{{ $data['level_no'] }}/A/{{ $data['profile_name'] }}/{{ $data['flag'] }}/{{ $data['entity_name'] }}/{{ $data['logo'] }}/{{ $data['module'] }}" style="display: inline-block; font-size: 13px; font-weight: 600; line-height: 20px; text-align: center; text-decoration: none; text-transform: uppercase; padding: 10px 40px; background-color: #1ee0ac; border-radius: 4px; color: #ffffff;">Approve</a>
+                                    <a href="{{ url('api') }}/{{ $data['link'] }}/{{ $data['entity_cd'] }}/{{ $data['project_no'] }}/{{ $data['trx_type'] }}/{{ $data['doc_no'] }}/{{ $data['user_id'] }}/{{ $data['level_no'] }}/R/{{ $data['profile_name'] }}/{{ $data['flag'] }}/{{ $data['entity_name'] }}/{{ $data['logo'] }}/{{ $data['module'] }}" style="display: inline-block; font-size: 13px; font-weight: 600; line-height: 20px; text-align: center; text-decoration: none; text-transform: uppercase; padding: 10px 40px; background-color: #f4bd0e; border-radius: 4px; color: #ffffff;">Modify</a>
+                                    <a href="{{ url('api') }}/{{ $data['link'] }}/{{ $data['entity_cd'] }}/{{ $data['project_no'] }}/{{ $data['trx_type'] }}/{{ $data['doc_no'] }}/{{ $data['user_id'] }}/{{ $data['level_no'] }}/C/{{ $data['profile_name'] }}/{{ $data['flag'] }}/{{ $data['entity_name'] }}/{{ $data['logo'] }}/{{ $data['module'] }}" style="display: inline-block; font-size: 13px; font-weight: 600; line-height: 20px; text-align: center; text-decoration: none; text-transform: uppercase; padding: 10px 40px; background-color: #e85347; border-radius: 4px; color: #ffffff;">Reject</a>
                                     <br><br><br><div style="text-align:left;color: #000000; font-size: 13px;">
                                         <i>*note : do not reply this email</i>
                                     </div>

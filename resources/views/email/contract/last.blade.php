@@ -43,6 +43,12 @@
                                     <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">
                                     <table style="padding-left: 40px;width: 100%; text-align:left;">
                                             <tr>
+                                                <td>Doc No.</td>
+                                                <td>:</td>
+                                                <td>{{ $data['doc_no'] }}</td>
+                                            </tr>    
+
+                                            <tr>
                                                 <td>{{ $data['module'] }} No.</td>
                                                 <td>:</td>
                                                 <td>{{ $data['contract_ref_no'] }}</td>

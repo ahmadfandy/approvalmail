@@ -32,7 +32,7 @@ class ContractMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Need Approval Contract No : '.$this->dataEmail['contract_ref_no'].'  '.$this->dataEmail['entity_name'])
+        return $this->subject('Need Approval Contract No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.contract.send')
                     ->with(['data' => $this->dataEmail]);
     }
