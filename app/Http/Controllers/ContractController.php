@@ -74,7 +74,7 @@ class ContractController extends Controller
         
     }
 
-    public function changestatus($entity_cd='',$project_no='', $trx_type='', $doc_no='', $user_id='', $level_no='', $status='', $profile='', $flag='', $entity_name='', $logo='', $module='')
+    public function changestatus($entity_cd='',$project_no='', $trx_type='', $doc_no='', $user_id='', $level_no='', $status='', $profile='', $flag='', $entity_name='', $logo='', $module='', $contract_ref_no='')
     {
         $entity_name_r = str_replace('+', ' ', $entity_name);
         $module_r = str_replace('+', ' ', $module);
