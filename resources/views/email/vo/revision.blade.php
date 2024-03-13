@@ -43,7 +43,7 @@
                                 <td style="text-align:center;padding: 50px 30px;">
                                     <img style="width:88px; margin-bottom:24px;" src="{{ url('public/images/double_approve.png') }}" alt="Verified">
                                     <p>Please Give a Reason to <?php echo $doc_no?> <?php echo $name?> : </p>
-                                    <form id="frmEditor" class="form-horizontal" method="POST" action="{{url('/api/ap/update')}}" enctype="multipart/form-data">
+                                    <form id="frmEditor" class="form-horizontal" method="POST" action="{{url('/api/vo/update')}}" enctype="multipart/form-data">
                                     @csrf
                                         <input type="text" id="entity_cd" name="entity_cd" value="<?php echo $entity_cd?>" hidden>
                                         <input type="text" id="project_no" name="project_no" value="<?php echo $project_no?>" hidden>
