@@ -155,6 +155,7 @@ class ClaimController extends Controller
 
                 $dataRevision = array(
                     'entity_cd' => $entity_cd,
+                    'project_no'     => $request->project_no,
                     'name'      => $name,
                     'bgcolor'      => $bgcolor,
                     'valuebt'      => $valuebt,
