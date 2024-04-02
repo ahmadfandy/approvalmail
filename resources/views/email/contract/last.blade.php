@@ -46,6 +46,11 @@
                                                 <td>Doc No.</td>
                                                 <td>:</td>
                                                 <td>{{ $data['doc_no'] }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Creditor Name</td>
+                                                <td>:</td>
+                                                <td>{{ $data['creditor_name'] }}</td>
                                             </tr>    
 
                                             <tr>

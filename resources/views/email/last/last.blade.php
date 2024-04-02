@@ -48,6 +48,11 @@
                                                 <td>{{ $data['doc_no'] }}</td>
                                             </tr>
                                             <tr>
+                                                <td>Creditor Name</td>
+                                                <td>:</td>
+                                                <td>{{ $data['creditor_name'] }}</td>
+                                            </tr>
+                                            <tr>
                                                 <td>Remarks</td>
                                                 <td>:</td>
                                                 <td>{{ $data['descs'] }}</td>

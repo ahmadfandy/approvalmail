@@ -48,6 +48,7 @@ class VoController extends Controller
                 'profile_name'  => $request->profile_name,
                 'flag'          => $request->flag,
                 'descs'         => $request->descs,
+                'creditor_name' => $request->creditor_name,
                 'amount'        => $request->amount,
                 'logo'          => $request->logo,
                 'module'        => $request->module,
