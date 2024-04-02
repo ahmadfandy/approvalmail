@@ -32,7 +32,7 @@ class SupplierMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Need Approval Supplier Selection No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
+        return $this->subject('Need Approval Supplier Selection on Request No : '.$this->dataEmail['request_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.supplier.send')
                     ->with(['data' => $this->dataEmail]);
     }

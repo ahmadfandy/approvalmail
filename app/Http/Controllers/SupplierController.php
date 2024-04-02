@@ -48,6 +48,7 @@ class SupplierController extends Controller
                 'profile_name'  => $request->profile_name,
                 'flag'          => $request->flag,
                 'descs'         => $request->descs,
+                'request_no'    => $request->request_no,
                 'amount'        => $request->amount,
                 'logo'          => $request->logo,
                 'module'        => $request->module,

@@ -44,6 +44,11 @@ class LastMail extends Mailable
             return $this->subject($this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.contract.last')
                     ->with(['data' => $this->dataEmail]);
+        }
+        else if ($this->dataEmail['flag'] == 'SS') {
+            return $this->subject('Supplier Selection On Request No : '.$this->dataEmail['request_no'].'  '.$this->dataEmail['entity_name'])
+                    ->view('email.supplier.last')
+                    ->with(['data' => $this->dataEmail]);
         } else {
             return $this->subject($this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.last.last')
