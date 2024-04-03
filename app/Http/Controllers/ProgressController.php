@@ -49,6 +49,8 @@ class ProgressController extends Controller
                 'flag'          => $request->flag,
                 'descs'         => $request->descs,
                 'creditor_name' => $request->creditor_name,
+                'prev_progress' => $request->prev_progress,
+                'curr_progress' => $request->curr_progress,
                 'amount'        => $request->amount,
                 'logo'          => $request->logo,
                 'module'        => $request->module,

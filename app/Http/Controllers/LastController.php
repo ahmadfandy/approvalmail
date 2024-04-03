@@ -49,6 +49,8 @@ class LastController extends Controller
                 'descs'         => $request->descs,
                 'creditor_name' => $request->creditor_name,
                 'request_no'    => $request->request_no,
+                'prev_progress' => $request->prev_progress,
+                'curr_progress' => $request->curr_progress,
                 'amount'        => $request->amount,
                 'logo'          => $request->logo,
                 'module'        => $request->module,

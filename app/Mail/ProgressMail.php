@@ -32,7 +32,7 @@ class ProgressMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Need Approval Progress No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
+        return $this->subject('Need Approval '.$this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.progress.send')
                     ->with(['data' => $this->dataEmail]);
     }
