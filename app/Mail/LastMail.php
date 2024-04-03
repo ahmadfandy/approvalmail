@@ -54,6 +54,14 @@ class LastMail extends Mailable
             return $this->subject($this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.progress.last')
                     ->with(['data' => $this->dataEmail]);
+        }else if ($this->dataEmail['flag'] == 'B') {
+            return $this->subject($this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
+                    ->view('email.budget.last')
+                    ->with(['data' => $this->dataEmail]);
+        }else if ($this->dataEmail['flag'] == 'R') {
+            return $this->subject($this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
+                    ->view('email.revisebudget.last')
+                    ->with(['data' => $this->dataEmail]);
         }  else {
             return $this->subject($this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.last.last')
