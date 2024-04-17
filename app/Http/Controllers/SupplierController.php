@@ -50,6 +50,8 @@ class SupplierController extends Controller
                 'descs'         => $request->descs,
                 'request_no'    => $request->request_no,
                 'amount'        => $request->amount,
+                'base'          => $request->base,
+                'tax'           => $request->tax,
                 'logo'          => $request->logo,
                 'module'        => $request->module,
                 'user_name'     => $request->user_name,

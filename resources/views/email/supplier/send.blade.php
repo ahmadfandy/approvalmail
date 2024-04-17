@@ -48,6 +48,16 @@
                                                 <td>{{ $data['descs'] }}</td>
                                             </tr>
                                             <tr>
+                                                <td>Base Amount</td>
+                                                <td>:</td>
+                                                <td>RP. {{ $data['base'] }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tax Amount</td>
+                                                <td>:</td>
+                                                <td>RP. {{ $data['tax'] }}</td>
+                                            </tr>
+                                            <tr>
                                                 <td>Total</td>
                                                 <td>:</td>
                                                 <td>RP. {{ $data['amount'] }}</td>
