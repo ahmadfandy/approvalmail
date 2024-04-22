@@ -49,6 +49,7 @@ class ReviseBudgetController extends Controller
                 'flag'          => $request->flag,
                 'descs'         => $request->descs,
                 'amount'        => $request->amount,
+                'cost_cd_descs' => $request->cost_cd_descs,
                 'logo'          => $request->logo,
                 'module'        => $request->module,
                 'user_name'     => $request->user_name,

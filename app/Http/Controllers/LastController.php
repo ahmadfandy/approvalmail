@@ -52,6 +52,7 @@ class LastController extends Controller
                 'prev_progress' => $request->prev_progress,
                 'curr_progress' => $request->curr_progress,
                 'amount'        => $request->amount,
+                'cost_cd_descs' => $request->cost_cd_descs,
                 'base'          => $request->base,
                 'tax'           => $request->tax,
                 'logo'          => $request->logo,

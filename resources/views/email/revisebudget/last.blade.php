@@ -43,7 +43,7 @@
                                     <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">
                                     <table style="padding-left: 40px;width: 100%; text-align:left;">
                                             <tr>
-                                                <td>{{ $data['module'] }} No.</td>
+                                                <td style="width :25%">{{ $data['module'] }} No.</td>
                                                 <td>:</td>
                                                 <td>{{ $data['doc_no'] }}</td>
                                             </tr>
@@ -51,6 +51,11 @@
                                                 <td>Remarks</td>
                                                 <td>:</td>
                                                 <td>{{ $data['descs'] }}</td>
+                                            </tr>
+                                            <tr style="vertical-align:top;">
+                                                <td>Cost Code</td>
+                                                <td>:</td>
+                                                <td >{{ $data['cost_cd_descs'] }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Total</td>
@@ -82,6 +87,9 @@
                                 </td>
                             </tr>
                         </tbody>
+                        <br><br><br><div style="text-align:left;color: #000000; font-size: 13px;">
+                                        <i>*note : do not reply this email</i>
+                                    </div>
                     </table>
                     <table style="width:100%;max-width:620px;margin:0 auto;">
                         <tbody>

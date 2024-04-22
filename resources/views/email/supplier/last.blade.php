@@ -87,6 +87,9 @@
                                 </td>
                             </tr>
                         </tbody>
+                        <br><br><br><div style="text-align:left;color: #000000; font-size: 13px;">
+                                        <i>*note : do not reply this email</i>
+                                    </div>
                     </table>
                     <table style="width:100%;max-width:620px;margin:0 auto;">
                         <tbody>

@@ -43,7 +43,7 @@
                                     <p style="padding-left: 30px;text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">Kindly review this Revise Budget : <br>
                                         <table style="padding-left: 40px;width: 100%; text-align:left;">
                                             <tr>
-                                                <td>Revise Budget No.</td>
+                                                <td style="width :25%">Revise Budget No.</td>
                                                 <td>:</td>
                                                 <td>{{ $data['doc_no'] }}</td>
                                             </tr>
@@ -51,6 +51,11 @@
                                                 <td>Remarks</td>
                                                 <td>:</td>
                                                 <td>{{ $data['descs'] }}</td>
+                                            </tr>
+                                            <tr style="vertical-align:top;">
+                                                <td>Cost Code</td>
+                                                <td>:</td>
+                                                <td >{{ $data['cost_cd_descs'] }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Total</td>
