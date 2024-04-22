@@ -53,13 +53,29 @@
                                                 <td>{{ $data['creditor_name'] }}</td>
                                             </tr>
                                             <tr>
+                                                <td>Contract No</td>
+                                                <td>:</td>
+                                                <td>{{ $data['contract_no'] }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Contract Remarks</td>
+                                                <td>:</td>
+                                                <td>{{ $data['contract_remarks'] }}</td>
+                                            </tr>
+                                            <tr>
                                                 <td>Previous Progress</td>
                                                 <td>:</td>
                                                 <td>{{ $data['prev_progress'] }}</td>
-                                            </tr><tr>
+                                            </tr>
+                                            <tr>
                                                 <td>Current Progress</td>
                                                 <td>:</td>
                                                 <td>{{ $data['curr_progress'] }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cumulative Progress</td>
+                                                <td>:</td>
+                                                <td>{{ $data['cumulative_progress'] }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Remarks</td>

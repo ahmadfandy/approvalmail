@@ -63,6 +63,21 @@
                                                 <td>{{ $data['contract_remarks'] }}</td>
                                             </tr>
                                             <tr>
+                                                <td>VO No.</td>
+                                                <td>:</td>
+                                                <td>{{ $data['vo_no'] }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>VO Description</td>
+                                                <td>:</td>
+                                                <td>{{ $data['vo_descs'] }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>VO Count</td>
+                                                <td>:</td>
+                                                <td>{{ $data['vo_count'] }}</td>
+                                            </tr>
+                                            <tr>
                                                 <td>Previous Progress</td>
                                                 <td>:</td>
                                                 <td>{{ $data['prev_progress'] }}</td>

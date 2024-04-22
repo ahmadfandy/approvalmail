@@ -49,11 +49,6 @@ class LastMail extends Mailable
             return $this->subject('Supplier Selection On Request No : '.$this->dataEmail['request_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.supplier.last')
                     ->with(['data' => $this->dataEmail]);
-        }
-        else if ($this->dataEmail['flag'] == 'P') {
-            return $this->subject('Approved : '.$this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
-                    ->view('email.progress.last')
-                    ->with(['data' => $this->dataEmail]);
         }else if ($this->dataEmail['flag'] == 'B') {
             return $this->subject('Approved : '.$this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.budget.last')
@@ -62,9 +57,13 @@ class LastMail extends Mailable
             return $this->subject('Approved : '.$this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.revisebudget.last')
                     ->with(['data' => $this->dataEmail]);
-        }else if ($this->dataEmail['flag'] == 'C') {
+        }else if ($this->dataEmail['type_prog'] == 'V' AND $this->dataEmail['flag'] == 'P')  {
             return $this->subject('Approved : '.$this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
-                    ->view('email.claim.last')
+                    ->view('email.progressvo.last')
+                    ->with(['data' => $this->dataEmail]);
+        }else if ($this->dataEmail['type_prog'] == 'C' AND $this->dataEmail['flag'] == 'P') {
+            return $this->subject('Approved : '.$this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
+                    ->view('email.progress.last')
                     ->with(['data' => $this->dataEmail]);
         }  else {
             return $this->subject('Approved : '.$this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
