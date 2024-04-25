@@ -43,24 +43,33 @@
                                     <p style="padding-left: 30px;text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">Kindly review this Supplier Selection : <br>
                                         <table style="padding-left: 40px;width: 100%; text-align:left;">                                           
                                             <tr>
-                                                <td>Remarks</td>
-                                                <td>:</td>
-                                                <td>{{ $data['descs'] }}</td>
+                                                <td style="width :25%">Remarks</td>
+                                                <td style="width :2%">:</td>
+                                                <td >{{ $data['descs'] }}</td>
                                             </tr>
                                             <tr>
-                                                <td>Base Amount</td>
+                                                <td>Total (Base Amount)</td>
                                                 <td>:</td>
-                                                <td>RP. {{ $data['base'] }}</td>
+                                                <td>
+                                                    <div style="float:left;width:8px">RP.</div>
+                                                    <div style="text-align:right;width:27%">{{ $data['base'] }}</div>    
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Tax Amount</td>
+                                                <td>Total (Tax Amount)</td>
                                                 <td>:</td>
-                                                <td>RP. {{ $data['tax'] }}</td>
+                                                <td>
+                                                    <div style="float:left;width:8px">RP.</div>
+                                                    <div style="text-align:right;width:27%">{{ $data['tax'] }}</div>    
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Total</td>
+                                                <td>Total Amount</td>
                                                 <td>:</td>
-                                                <td>RP. {{ $data['amount'] }}</td>
+                                                <td>
+                                                    <div style="float:left;width:8px">RP.</div>
+                                                    <div style="text-align:right;width:27%">{{ $data['amount'] }}</div>  
+                                                </td>
                                             </tr>
                                         </table>
                                     </p>
