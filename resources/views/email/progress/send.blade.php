@@ -42,7 +42,7 @@
                                     <h5 style="padding: 30px 30px;text-align:left;margin-bottom: 24px; color: #000000; font-size: 20px; font-weight: 400; line-height: 28px;">Dear Mr./Mrs. {{ $data['user_name'] }}, </h5>
                                     <p style="padding-left: 30px;text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">Kindly review this Progress : <br>
                                         <table style="padding-left: 40px;width: 100%; text-align:left;">
-                                            <tr tyle="width :30%">
+                                            <tr tyle="width :35%">
                                                 <td >Progress Contract No.</td>
                                                 <td>:</td>
                                                 <td>{{ $data['doc_no'] }}</td>
