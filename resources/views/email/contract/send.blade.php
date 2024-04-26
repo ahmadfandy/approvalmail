@@ -58,7 +58,7 @@
                                                 <td>:</td>
                                                 <td>{{ $data['contract_ref_no'] }}</td>
                                             </tr>
-                                            <tr>
+                                            <tr style="vertical-align:top;">
                                                 <td>Remarks</td>
                                                 <td>:</td>
                                                 <td>{{ $data['descs'] }}</td>

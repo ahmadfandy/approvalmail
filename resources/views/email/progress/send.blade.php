@@ -77,7 +77,7 @@
                                                 <td>:</td>
                                                 <td>{{ $data['cumulative_progress'] }}</td>
                                             </tr>
-                                            <tr>
+                                            <tr style="vertical-align:top;">
                                                 <td>Remarks</td>
                                                 <td>:</td>
                                                 <td>{{ $data['descs'] }}</td>

@@ -47,12 +47,12 @@
                                                 <td>:</td>
                                                 <td>{{ $data['doc_no'] }}</td>
                                             </tr>
-                                            <tr>
+                                            <tr style="vertical-align:top;">
                                                 <td>Creditor Name</td>
                                                 <td>:</td>
                                                 <td>{{ $data['creditor_name'] }}</td>
                                             </tr>
-                                            <tr>
+                                            <tr style="vertical-align:top;">
                                                 <td>Remarks</td>
                                                 <td>:</td>
                                                 <td>{{ $data['descs'] }}</td>
