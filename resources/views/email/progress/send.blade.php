@@ -43,7 +43,7 @@
                                     <p style="padding-left: 30px;text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">Kindly review this Progress : <br>
                                         <table style="padding-left: 40px;width: 100%; text-align:left;">
                                             <tr >
-                                                <td tyle="width :40%">Progress Contract No.</td>
+                                                <td tyle="width :25%">Progress Contract No.</td>
                                                 <td>:</td>
                                                 <td>{{ $data['doc_no'] }}</td>
                                             </tr>
