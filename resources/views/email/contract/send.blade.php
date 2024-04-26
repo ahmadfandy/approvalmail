@@ -53,7 +53,7 @@
                                                 <td>{{ $data['creditor_name'] }}</td>
                                             </tr>
                                         
-                                            <tr>
+                                            <tr style="vertical-align:top;">
                                                 <td>Contract No.</td>
                                                 <td>:</td>
                                                 <td>{{ $data['contract_ref_no'] }}</td>

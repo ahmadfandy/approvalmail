@@ -43,7 +43,7 @@
                                     <p style="text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">
                                     <table style="padding-left: 40px;width: 100%; text-align:left;">
                                             <tr>
-                                                <td>{{ $data['module'] }} No.</td>
+                                                <td tyle="width :25%">Progress Vo No.</td>
                                                 <td>:</td>
                                                 <td>{{ $data['doc_no'] }}</td>
                                             </tr>
@@ -52,7 +52,7 @@
                                                 <td>:</td>
                                                 <td>{{ $data['creditor_name'] }}</td>
                                             </tr>
-                                            <tr>
+                                            <tr style="vertical-align:top;">
                                                 <td>Contract No</td>
                                                 <td>:</td>
                                                 <td>{{ $data['contract_no'] }}</td>
