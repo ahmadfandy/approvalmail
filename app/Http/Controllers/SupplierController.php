@@ -49,6 +49,7 @@ class SupplierController extends Controller
                 'flag'          => $request->flag,
                 'descs'         => $request->descs,
                 'request_no'    => $request->request_no,
+                'pr_descs'        => $request->pr_descs,
                 'amount'        => $request->amount,
                 'base'          => $request->base,
                 'tax'           => $request->tax,
