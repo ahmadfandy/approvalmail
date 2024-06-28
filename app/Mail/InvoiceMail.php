@@ -32,7 +32,8 @@ class InvoiceMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Need Approval '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
+        return $this->from($address = $this->dataEmail['email_profile_addr'], $name = $this->dataEmail['email_profile_name'])
+                    ->subject('Need Approval '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.invoice.send')
                     ->with(['data' => $this->dataEmail]);
     }

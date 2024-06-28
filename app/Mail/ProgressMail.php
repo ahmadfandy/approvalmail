@@ -33,11 +33,13 @@ class ProgressMail extends Mailable
     public function build()
     {
         if ($this->dataEmail['type_prog'] == 'V') {
-        return $this->subject('Need Approval '.$this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
+        return $this->from($address = $this->dataEmail['email_profile_addr'], $name = $this->dataEmail['email_profile_name'])
+                    ->subject('Need Approval '.$this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.progressvo.send')
                     ->with(['data' => $this->dataEmail]);
         }else{
-            return $this->subject('Need Approval '.$this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
+            return $this->from($address = $this->dataEmail['email_profile_addr'], $name = $this->dataEmail['email_profile_name'])
+                    ->subject('Need Approval '.$this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.progress.send')
                     ->with(['data' => $this->dataEmail]);
         }

@@ -61,6 +61,8 @@ class SupplierController extends Controller
                 'sender'        => $request->sender,
                 'entity_name'   => $request->entity_name,
                 'email_addr'    => $email,
+                'email_profile_addr'    => $request->email_profile_addr,
+                'email_profile_name'    => $request->email_profile_name,
                 'link'          => 'supplier'
             );
 

@@ -33,15 +33,18 @@ class EndingMail extends Mailable
     public function build()
     {
         if ($this->dataEmail['status'] == 'M') {
-            return $this->subject('Request No.  '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
+            return $this->from($address = $this->dataEmail['email_profile_addr'], $name = $this->dataEmail['email_profile_name'])
+                    ->subject('Request No.  '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.modify')
                     ->with(['data' => $this->dataEmail]);
         } else if ($this->dataEmail['status'] == 'R') {
-            return $this->subject('Request No.  '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
+            return $this->from($address = $this->dataEmail['email_profile_addr'], $name = $this->dataEmail['email_profile_name'])
+                    ->subject('Request No.  '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.reject')
                     ->with(['data' => $this->dataEmail]);
         } else {
-            return $this->subject('Request No.  '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
+            return $this->from($address = $this->dataEmail['email_profile_addr'], $name = $this->dataEmail['email_profile_name'])
+                    ->subject('Request No.  '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.ending')
                     ->with(['data' => $this->dataEmail]);
         }
