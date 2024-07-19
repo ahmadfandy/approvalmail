@@ -47,6 +47,7 @@ class LastController extends Controller
                 'profile_name'  => $request->profile_name,
                 'flag'          => $request->flag,
                 'descs'         => $request->descs,
+                'pay_to'        => $request->pay_to,
                 'creditor_name' => $request->creditor_name,
                 'request_no'    => $request->request_no,
                 'prev_progress' => $request->prev_progress,
