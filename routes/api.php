@@ -15,6 +15,8 @@ use App\Http\Controllers\BudgetController as Budget;
 use App\Http\Controllers\ReviseBudgetController as ReviseBudget;
 use App\Http\Controllers\SupplierController as Supplier;
 use App\Http\Controllers\CashbookController as Cashbook;
+use App\Http\Controllers\PaymentController as Payment;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -70,6 +72,11 @@ Route::POST('/supplier/update', [supplier::class, 'update']);
 Route::POST('/cashbook', [cashbook::class, 'mail']);
 Route::GET('/cashbook/{entity_cd}/{project_no}/{trx_type}/{doc_no}/{user_id}/{level_no}/{status}/{profile}/{flag}/{entity_name}/{logo}/{module}', [cashbook::class, 'changestatus']);
 Route::POST('/cashbook/update', [cashbook::class, 'update']);
+
+Route::POST('/payment', [payment::class, 'mail']);
+Route::GET('/payment/{entity_cd}/{project_no}/{trx_type}/{doc_no}/{user_id}/{level_no}/{status}/{profile}/{flag}/{entity_name}/{logo}/{module}', [payment::class, 'changestatus']);
+Route::POST('/payment/update', [payment::class, 'update']);
+
 
 Route::POST('/ending', [Ending::class, 'mail']);
 Route::POST('/last', [Last::class, 'mail']);
