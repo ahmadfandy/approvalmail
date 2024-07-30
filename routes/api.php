@@ -16,6 +16,7 @@ use App\Http\Controllers\ReviseBudgetController as ReviseBudget;
 use App\Http\Controllers\SupplierController as Supplier;
 use App\Http\Controllers\CashbookController as Cashbook;
 use App\Http\Controllers\PaymentController as Payment;
+use App\Http\Controllers\AdvanceController as Advance;
 
 
 /*
@@ -77,6 +78,9 @@ Route::POST('/payment', [payment::class, 'mail']);
 Route::GET('/payment/{entity_cd}/{project_no}/{trx_type}/{doc_no}/{user_id}/{level_no}/{status}/{profile}/{flag}/{entity_name}/{logo}/{module}', [payment::class, 'changestatus']);
 Route::POST('/payment/update', [payment::class, 'update']);
 
+Route::POST('/advance', [advance::class, 'mail']);
+Route::GET('/advance/{entity_cd}/{project_no}/{trx_type}/{doc_no}/{user_id}/{level_no}/{status}/{profile}/{flag}/{entity_name}/{logo}/{module}', [advance::class, 'changestatus']);
+Route::POST('/advance/update', [advance::class, 'update']);
 
 Route::POST('/ending', [Ending::class, 'mail']);
 Route::POST('/last', [Last::class, 'mail']);
