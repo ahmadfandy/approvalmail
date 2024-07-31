@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\InvoiceMail;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Log;
 
 class InvoiceController extends Controller
 {
@@ -61,15 +61,20 @@ class InvoiceController extends Controller
                 'link'          => 'porequest'
             );
 
-            $sendToEmail = strtolower($email);
-            if(isset($sendToEmail) && !empty($sendToEmail) && filter_var($sendToEmail, FILTER_VALIDATE_EMAIL))
-            {
-                Mail::to($sendToEmail)
-                    ->send(new InvoiceMail($dataEmail));
-                $callback['Error'] = false;
-                $callback['Pesan'] = 'sendToEmail';
-                echo json_encode($callback);
-            }
+            try {
+                $sendToEmail = strtolower($email);
+                if(isset($sendToEmail) && !empty($sendToEmail) && filter_var($sendToEmail, FILTER_VALIDATE_EMAIL))
+                {
+                    Mail::to($sendToEmail)->send(new InvoiceMail($dataEmail));
+                    Log::channel('sendmail')->info('Email send to '.$sendToEmail);
+                    return 'Email berhasil dikirim';
+                }
+            }catch (\Exception $e) {
+                Log::channel('sendmail')->error('Gagal mengirim email: ' . $e->getMessage());  
+                return "Gagal mengirim email. Cek log untuk detailnya.";
+             } 
+
+
         }
         
     }

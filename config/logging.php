@@ -113,6 +113,13 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        'sendmail' => [
+            'driver' => 'daily', // (single, daily, syslog, etc.)
+            'path' => storage_path('logs/sendmail.log'),
+            'ignore_exceptions' => false,
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
     ],
 
 ];
