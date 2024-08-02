@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AdvanceMail;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 
 class AdvanceController extends Controller
@@ -62,14 +63,17 @@ class AdvanceController extends Controller
                 'link'          => 'advance'
             );
 
-            $sendToEmail = strtolower($email);
-            if(isset($sendToEmail) && !empty($sendToEmail) && filter_var($sendToEmail, FILTER_VALIDATE_EMAIL))
-            {
-                Mail::to($sendToEmail)
-                    ->send(new AdvanceMail($dataEmail));
-                $callback['Error'] = false;
-                $callback['Pesan'] = 'sendToEmail';
-                echo json_encode($callback);
+            try {
+                $sendToEmail = strtolower($email);
+                if(isset($sendToEmail) && !empty($sendToEmail) && filter_var($sendToEmail, FILTER_VALIDATE_EMAIL))
+                {
+                    Mail::to($sendToEmail)->send(new AdvanceMail($dataEmail));
+                    Log::channel('sendmail')->info('Email send to '.$sendToEmail.' Doc No : '.$request->doc_no);
+                    return 'Email berhasil dikirim';
+                }
+            } catch (\Exception $e) {
+                Log::channel('sendmail')->error('Gagal mengirim email: ' . $e->getMessage());              
+                return "Gagal mengirim email. Cek log untuk detailnya.";
             }
         }
         

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\CashbookMail;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Log;
 
 class CashbookController extends Controller
 {
@@ -63,14 +63,17 @@ class CashbookController extends Controller
                 'link'          => 'cashbook'
             );
 
-            $sendToEmail = strtolower($email);
-            if(isset($sendToEmail) && !empty($sendToEmail) && filter_var($sendToEmail, FILTER_VALIDATE_EMAIL))
-            {
-                Mail::to($sendToEmail)
-                    ->send(new CashbookMail($dataEmail));
-                $callback['Error'] = false;
-                $callback['Pesan'] = 'sendToEmail';
-                echo json_encode($callback);
+            try {
+                $sendToEmail = strtolower($email);
+                if(isset($sendToEmail) && !empty($sendToEmail) && filter_var($sendToEmail, FILTER_VALIDATE_EMAIL))
+                {
+                    Mail::to($sendToEmail)->send(new CashbookMail($dataEmail));
+                    Log::channel('sendmail')->info('Email send to '.$sendToEmail.' Doc No : '.$request->doc_no);
+                    return 'Email berhasil dikirim';
+                }
+            } catch (\Exception $e) {
+                Log::channel('sendmail')->error('Gagal mengirim email: ' . $e->getMessage());              
+                return "Gagal mengirim email. Cek log untuk detailnya.";
             }
         }
         
