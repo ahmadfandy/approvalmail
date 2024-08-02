@@ -52,7 +52,7 @@
                                                 <td>:</td>
                                                 <td>{{ $data['doc_no'] }}</td>
                                             </tr>
-                                            <tr>
+                                            <tr style="vertical-align:top;">
                                                 <td>Remarks</td>
                                                 <td>:</td>
                                                 <td>{{ $data['descs'] }}</td>
