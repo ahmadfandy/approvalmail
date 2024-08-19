@@ -40,8 +40,13 @@
                             <tr>
                                 <td>
                                     <h5 style="padding: 30px 30px;text-align:left;margin-bottom: 24px; color: #000000; font-size: 20px; font-weight: 400; line-height: 28px;">Dear Mr./Mrs. {{ $data['user_name'] }}, </h5>
-                                    <p style="padding-left: 30px;text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">Kindly review this Payment : <br>
+                                    <p style="padding-left: 30px;text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">Kindly review this Advance : <br>
                                         <table style="padding-left: 40px;width: 100%; text-align:left;">                                           
+                                            <tr style="vertical-align:top;">
+                                                <td style="width :25%">Document No.</td>
+                                                <td style="width :2%">:</td>
+                                                <td >{{ $data['doc_no'] }}</td>
+                                            </tr>    
                                             <tr style="vertical-align:top;">
                                                 <td style="width :25%">Description</td>
                                                 <td style="width :2%">:</td>
