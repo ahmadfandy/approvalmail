@@ -17,7 +17,7 @@ use App\Http\Controllers\SupplierController as Supplier;
 use App\Http\Controllers\CashbookController as Cashbook;
 use App\Http\Controllers\PaymentController as Payment;
 use App\Http\Controllers\AdvanceController as Advance;
-
+use App\Http\Controllers\ProcurementController as Procurement;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,4 +84,4 @@ Route::POST('/advance/update', [advance::class, 'update']);
 
 Route::POST('/ending', [Ending::class, 'mail']);
 Route::POST('/last', [Last::class, 'mail']);
-
+Route::POST('/procurement', [Procurement::class, 'mail']);
