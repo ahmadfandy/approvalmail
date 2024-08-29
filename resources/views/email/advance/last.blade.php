@@ -57,7 +57,7 @@
                                                 <td>:</td>
                                                 <td>
                                                     <div style="float:left;width:8px">RP.</div>
-                                                    <div style="text-align:right;width:27%">{{ $data['amount'] }}</div>    
+                                                    <div style="text-align:right;width:35%">{{ $data['amount'] }}</div>    
                                                 </td>
                                             </tr>
                               
