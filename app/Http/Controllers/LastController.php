@@ -79,17 +79,14 @@ class LastController extends Controller
                 'link'          => 'last'
             );
     
-            try {
-                $sendToEmail = strtolower($email);
-                if(isset($sendToEmail) && !empty($sendToEmail) && filter_var($sendToEmail, FILTER_VALIDATE_EMAIL))
-                {
-                    Mail::to($sendToEmail)->send(new LastMail($dataEmail));
-                    Log::channel('sendmail')->info('Email send to '.$sendToEmail.' Doc No : '.$request->doc_no);
-                    return 'Email berhasil dikirim';
-                }
-            } catch (\Exception $e) {
-                Log::channel('sendmail')->error('Gagal mengirim email: ' . $e->getMessage());              
-                return "Gagal mengirim email. Cek log untuk detailnya.";
+            $sendToEmail = strtolower($email);
+            if(isset($sendToEmail) && !empty($sendToEmail) && filter_var($sendToEmail, FILTER_VALIDATE_EMAIL))
+            {
+                Mail::to($sendToEmail)
+                    ->send(new LastMail($dataEmail));
+                $callback['Error'] = false;
+                $callback['Pesan'] = 'sendToEmail';
+                echo json_encode($callback);
             }
         }
         
