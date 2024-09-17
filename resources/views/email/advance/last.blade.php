@@ -55,10 +55,11 @@
                                             <tr>
                                                 <td>Amount</td>
                                                 <td>:</td>
-                                                <td>
+                                                <td>RP. {{ $data['amount'] }}</td>
+                                                <!-- <td>
                                                     <div style="float:left;width:8px">RP.</div>
                                                     <div style="text-align:right;width:35%">{{ $data['amount'] }}</div>    
-                                                </td>
+                                                </td> -->
                                             </tr>
                               
                                         </table>
