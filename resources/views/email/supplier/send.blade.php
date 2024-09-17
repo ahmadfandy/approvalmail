@@ -55,26 +55,29 @@
                                             <tr>
                                                 <td>Total (Base Amount)</td>
                                                 <td>:</td>
-                                                <td>
+                                                <td>RP. {{ $data['base'] }}</td>
+                                                <!-- <td>
                                                     <div style="float:left;width:8px">RP.</div>
                                                     <div style="text-align:right;width:27%">{{ $data['base'] }}</div>    
-                                                </td>
+                                                </td> -->
                                             </tr>
                                             <tr>
                                                 <td>Total (Tax Amount)</td>
                                                 <td>:</td>
-                                                <td>
+                                                <td>RP. {{ $data['tax'] }}</td>
+                                                <!-- <td>
                                                     <div style="float:left;width:8px">RP.</div>
                                                     <div style="text-align:right;width:27%">{{ $data['tax'] }}</div>    
-                                                </td>
+                                                </td> -->
                                             </tr>
                                             <tr>
                                                 <td>Total Amount</td>
                                                 <td>:</td>
-                                                <td>
+                                                <td>RP. {{ $data['amount'] }}</td>
+                                                <!-- <td>
                                                     <div style="float:left;width:8px">RP.</div>
                                                     <div style="text-align:right;width:27%">{{ $data['amount'] }}</div>  
-                                                </td>
+                                                </td> -->
                                             </tr>
                                         </table>
                                     </p>
