@@ -88,6 +88,11 @@ class LastMail extends Mailable
                     ->subject('Approved : '.$this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.advance.last')
                     ->with(['data' => $this->dataEmail]);
+        }else if ($this->dataEmail['flag'] == 'PO') {
+            return $this->from($address = $this->dataEmail['email_profile_addr'], $name = $this->dataEmail['email_profile_name'])
+                    ->subject('Approved : '.$this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
+                    ->view('email.po.last')
+                    ->with(['data' => $this->dataEmail]);
         }  else {
             return $this->from($address = $this->dataEmail['email_profile_addr'], $name = $this->dataEmail['email_profile_name'])
                     ->subject('Approved : '.$this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])

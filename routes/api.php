@@ -18,7 +18,7 @@ use App\Http\Controllers\CashbookController as Cashbook;
 use App\Http\Controllers\PaymentController as Payment;
 use App\Http\Controllers\AdvanceController as Advance;
 use App\Http\Controllers\ProcurementController as Procurement;
-
+use App\Http\Controllers\PoController as Po;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -81,6 +81,10 @@ Route::POST('/payment/update', [payment::class, 'update']);
 Route::POST('/advance', [advance::class, 'mail']);
 Route::GET('/advance/{entity_cd}/{project_no}/{trx_type}/{doc_no}/{user_id}/{level_no}/{status}/{profile}/{flag}/{entity_name}/{logo}/{module}', [advance::class, 'changestatus']);
 Route::POST('/advance/update', [advance::class, 'update']);
+
+Route::POST('/po', [po::class, 'mail']);
+Route::GET('/po/{entity_cd}/{project_no}/{trx_type}/{doc_no}/{user_id}/{level_no}/{status}/{profile}/{flag}/{entity_name}/{logo}/{module}', [po::class, 'changestatus']);
+Route::POST('/po/update', [po::class, 'update']);
 
 Route::POST('/ending', [Ending::class, 'mail']);
 Route::POST('/last', [Last::class, 'mail']);
