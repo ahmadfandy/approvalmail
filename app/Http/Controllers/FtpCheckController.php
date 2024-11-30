@@ -13,27 +13,27 @@ class FtpCheckController extends Controller
      */
     public function checkFile(Request $request)
     {
-        // // Validasi input
-        // $request->validate([
-        //     'folder' => 'required|string',
-        //     'filename' => 'required|string',
-        // ]);
+        // Validasi input
+        $request->validate([
+            'folder' => 'required|string',
+            'filename' => 'required|string',
+        ]);
 
-        // // Ambil parameter dari request
-        // $folder = $request->input('folder');
-        // $filename = $request->input('filename');
+        // Ambil parameter dari request
+        $folder = $request->input('folder');
+        $filename = $request->input('filename');
 
 
-        $dataFtp = array(
-            'folder'     => $request->folder,
-            'filename'    => $request->filename
-        );
+        // $dataFtp = array(
+        //     'folder'     => $request->folder,
+        //     'filename'    => $request->filename
+        // );
 
         
 
         // Gabungkan path folder dan filename
-        // $path = $folder . '/' . $filename;
-           $path = $request->folder . '/' . $request->filename;
+        $path = $folder . '/' . $filename;
+        //    $path = $request->folder . '/' . $request->filename;
         // // Cek apakah file ada di FTP
         // if (Storage::disk('ftp')->exists($path)) {
         //     // return response()->json(['message' => 'Ada file', 'file_path' => $path], 200);
