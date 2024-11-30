@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class FtpCheckController extends Controller
 {
@@ -63,6 +64,11 @@ class FtpCheckController extends Controller
             }
 
             // Jika koneksi berhasil, gunakan Laravel Storage untuk cek file
+
+            $fileList = ftp_nlist($ftpConn, $request->folder);
+            Log::channel('FTP')->info('File list: ' . json_encode($fileList));
+            // \Log::info('File list: ' . json_encode($fileList));
+
             if (Storage::disk('ftp')->exists($path)) {
                 ftp_close($ftpConn);
                 return 'File Exists';

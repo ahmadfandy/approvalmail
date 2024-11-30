@@ -120,6 +120,13 @@ return [
             'ignore_exceptions' => false,
             'level' => env('LOG_LEVEL', 'debug'),
         ],
+
+        'FTP' => [
+            'driver' => 'single', // (single, daily, syslog, etc.)
+            'path' => storage_path('logs/ftp.log'),
+            'ignore_exceptions' => false,
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
     ],
 
 ];
