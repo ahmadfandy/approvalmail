@@ -8,88 +8,75 @@ use Illuminate\Support\Facades\Log;
 
 class FtpCheckController extends Controller
 {
-    /**
-     * Cek file di FTP.
-     */
     public function checkFile(Request $request)
     {
-        // // Validasi input
-        // $request->validate([
-        //     'folder' => 'required|string',
-        //     'filename' => 'required|string',
-        // ]);
-
-        // // Ambil parameter dari request
-        // $folder = $request->input('folder');
-        // $filename = $request->input('filename');
-
-
         $dataFtp = array(
             'folder'     => $request->folder,
             'filename'    => $request->filename
         );
 
-        
-
-        // Gabungkan path folder dan filename
-        // $path = $folder . '/' . $filename;
-           $path = $request->folder . '' . $request->filename;
-        // // Cek apakah file ada di FTP
-        // if (Storage::disk('ftp')->exists($path)) {
-        //     // return response()->json(['message' => 'Ada file', 'file_path' => $path], 200);
-        //     return  'File Exists';
-        // } else {
-        //     // return response()->json(['message' => 'File tidak ditemukan', 'file_path' => $path], 404);
-        //     return  'File Not Exists';
-        // }
-
-        // Ambil konfigurasi FTP dari .env
         $ftpHost = config('filesystems.disks.ftp.host');
         $ftpUser = config('filesystems.disks.ftp.username');
-        $ftpPassword = config('filesystems.disks.ftp.password');
+        $ftpPass = config('filesystems.disks.ftp.password');
         $ftpPort = config('filesystems.disks.ftp.port', 21);
+        $folder = trim($request->folder);
+        $filename = trim($request->filename);
+        $path = $folder . '' . $filename;
 
         try {
-            // Tes koneksi FTP menggunakan PHP ftp_connect
-            $ftpConn = ftp_connect($ftpHost, $ftpPort, 10); // 10 detik timeout
+            // Koneksi ke FTP
+            $ftpConn = ftp_connect($ftpHost, $ftpPort, 30);
             if (!$ftpConn) {
-                return response()->json(['message' => 'Gagal terhubung ke server FTP'], 500);
+                throw new \Exception('Tidak dapat terhubung ke server FTP.');
             }
 
-            // Coba login ke FTP
-            $loginResult = ftp_login($ftpConn, $ftpUser, $ftpPassword);
-            if (!$loginResult) {
+            // Login FTP
+            if (!ftp_login($ftpConn, $ftpUser, $ftpPass)) {
                 ftp_close($ftpConn);
-                return response()->json(['message' => 'Login FTP gagal. Periksa kredensial.'], 500);
+                throw new \Exception('Login ke server FTP gagal.');
             }
 
-            // Jika koneksi berhasil, gunakan Laravel Storage untuk cek file
+            // Aktifkan mode pasif (opsional, tergantung server)
+            ftp_pasv($ftpConn, true);
 
-            $fileList = ftp_nlist($ftpConn, $request->folder);
-            Log::channel('FTP')->info('File list: ' . json_encode($fileList));
-            // \Log::info('File list: ' . json_encode($fileList));
+            // Ambil daftar file di folder
+            $fileList = ftp_nlist($ftpConn, $folder);
+            
+            if ($fileList === false) {
+                ftp_close($ftpConn);
+                throw new \Exception('Gagal mendapatkan daftar file dari server FTP.');
+            }
 
-                if (Storage::disk('ftp')->exists($path)) {
-                    $size = Storage::disk('ftp')->size($path);
+            // Cek apakah file ada di daftar
+            if (in_array($path, $fileList)) {
+                // Cek ukuran file
+                $fileSize = ftp_size($ftpConn, $path);
+                ftp_close($ftpConn);
 
-                    if ($size > 0) {
-                        ftp_close($ftpConn);
-                        return 'File Exists';
-                    } else {
-                        ftp_close($ftpConn);
-                        return 'File Not Exists';
-                    }
-                
-                
+                if ($fileSize > 0) {
+                    return response()->json([
+                        'message' => 'File ditemukan dan memiliki ukuran lebih dari 0 KB.',
+                        'file_path' => $path,
+                        'size' => $fileSize . ' bytes',
+                    ], 200);
+                } else {
+                    return response()->json([
+                        'message' => 'File ditemukan tetapi berukuran 0 KB.',
+                        'file_path' => $path,
+                        'size' => $fileSize . ' bytes',
+                    ], 404);
+                }
             } else {
                 ftp_close($ftpConn);
-                return 'File Not Exists';
+                return response()->json([
+                    'message' => 'File tidak ditemukan.',
+                    'file_path' => $path,
+                ], 404);
             }
         } catch (\Exception $e) {
-            // Tangani error
             return response()->json([
-                'message' => 'Error saat mengakses FTP',
-                'error' => $e->getMessage()
+                'message' => 'Terjadi error saat mengakses FTP.',
+                'error' => $e->getMessage(),
             ], 500);
         }
     }
