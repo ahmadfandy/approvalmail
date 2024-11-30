@@ -54,24 +54,13 @@ class FtpCheckController extends Controller
                 ftp_close($ftpConn);
 
                 if ($fileSize > 0) {
-                    return response()->json([
-                        'message' => 'File ditemukan dan memiliki ukuran lebih dari 0 KB.',
-                        'file_path' => $path,
-                        'size' => $fileSize . ' bytes',
-                    ], 200);
+                    return 'File Exists';
                 } else {
-                    return response()->json([
-                        'message' => 'File ditemukan tetapi berukuran 0 KB.',
-                        'file_path' => $path,
-                        'size' => $fileSize . ' bytes',
-                    ], 404);
+                    return 'File Not Exists';
                 }
             } else {
                 ftp_close($ftpConn);
-                return response()->json([
-                    'message' => 'File tidak ditemukan.',
-                    'file_path' => $path,
-                ], 404);
+                return 'File Not Exists';
             }
         } catch (\Exception $e) {
             return response()->json([
