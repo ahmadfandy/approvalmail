@@ -13,27 +13,27 @@ class FtpCheckController extends Controller
      */
     public function checkFile(Request $request)
     {
-        // Validasi input
-        $request->validate([
-            'folder' => 'required|string',
-            'filename' => 'required|string',
-        ]);
+        // // Validasi input
+        // $request->validate([
+        //     'folder' => 'required|string',
+        //     'filename' => 'required|string',
+        // ]);
 
-        // Ambil parameter dari request
-        $folder = $request->input('folder');
-        $filename = $request->input('filename');
+        // // Ambil parameter dari request
+        // $folder = $request->input('folder');
+        // $filename = $request->input('filename');
 
 
-        // $dataFtp = array(
-        //     'folder'     => $request->folder,
-        //     'filename'    => $request->filename
-        // );
+        $dataFtp = array(
+            'folder'     => $request->folder,
+            'filename'    => $request->filename
+        );
 
         
 
         // Gabungkan path folder dan filename
-        $path = $folder . '/' . $filename;
-        //    $path = $request->folder . '/' . $request->filename;
+        // $path = $folder . '/' . $filename;
+           $path = $request->folder . '' . $request->filename;
         // // Cek apakah file ada di FTP
         // if (Storage::disk('ftp')->exists($path)) {
         //     // return response()->json(['message' => 'Ada file', 'file_path' => $path], 200);
@@ -69,9 +69,18 @@ class FtpCheckController extends Controller
             Log::channel('FTP')->info('File list: ' . json_encode($fileList));
             // \Log::info('File list: ' . json_encode($fileList));
 
-            if (Storage::disk('ftp')->exists($path)) {
-                ftp_close($ftpConn);
-                return 'File Exists';
+                if (Storage::disk('ftp')->exists($path)) {
+                    $size = Storage::disk('ftp')->size($path);
+
+                    if ($size > 0) {
+                        ftp_close($ftpConn);
+                        return 'File Exists';
+                    } else {
+                        ftp_close($ftpConn);
+                        return 'File Not Exists';
+                    }
+                
+                
             } else {
                 ftp_close($ftpConn);
                 return 'File Not Exists';
