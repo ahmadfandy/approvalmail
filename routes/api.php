@@ -19,6 +19,9 @@ use App\Http\Controllers\PaymentController as Payment;
 use App\Http\Controllers\AdvanceController as Advance;
 use App\Http\Controllers\ProcurementController as Procurement;
 use App\Http\Controllers\PoController as Po;
+use App\Http\Controllers\FtpCheckController;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -89,3 +92,5 @@ Route::POST('/po/update', [po::class, 'update']);
 Route::POST('/ending', [Ending::class, 'mail']);
 Route::POST('/last', [Last::class, 'mail']);
 Route::POST('/procurement', [Procurement::class, 'mail']);
+
+Route::post('/ftp/check-file', [FtpCheckController::class, 'checkFile']);
