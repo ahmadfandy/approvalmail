@@ -60,6 +60,8 @@ class LastController extends Controller
                 'vo_no'         => $request->vo_no,
                 'vo_descs'      => $request->vo_descs,
                 'vo_count'      => $request->vo_count,
+                'bank_name'      => $request->bank_name,
+                'period'      => $request->period,
                 'pr_descs'        => $request->pr_descs,
                 'amount'        => $request->amount,
                 'cost_cd_descs' => $request->cost_cd_descs,

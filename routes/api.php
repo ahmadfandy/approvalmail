@@ -20,7 +20,7 @@ use App\Http\Controllers\AdvanceController as Advance;
 use App\Http\Controllers\ProcurementController as Procurement;
 use App\Http\Controllers\PoController as Po;
 use App\Http\Controllers\FtpCheckController;
-
+use App\Http\Controllers\ReconController as Recon;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,6 +88,10 @@ Route::POST('/advance/update', [advance::class, 'update']);
 Route::POST('/po', [po::class, 'mail']);
 Route::GET('/po/{entity_cd}/{project_no}/{trx_type}/{doc_no}/{user_id}/{level_no}/{status}/{profile}/{flag}/{entity_name}/{logo}/{module}', [po::class, 'changestatus']);
 Route::POST('/po/update', [po::class, 'update']);
+
+Route::POST('/recon', [recon::class, 'mail']);
+Route::GET('/recon/{entity_cd}/{project_no}/{trx_type}/{doc_no}/{user_id}/{level_no}/{status}/{profile}/{flag}/{entity_name}/{logo}/{module}', [recon::class, 'changestatus']);
+Route::POST('/recon/update', [recon::class, 'update']);
 
 Route::POST('/ending', [Ending::class, 'mail']);
 Route::POST('/last', [Last::class, 'mail']);
