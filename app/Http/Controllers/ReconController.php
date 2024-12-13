@@ -61,7 +61,7 @@ class ReconController extends Controller
                 'email_addr'    => $email,
                 'email_profile_addr'    => $request->email_profile_addr,
                 'email_profile_name'    => $request->email_profile_name,
-                'link'          => 'cashbook'
+                'link'          => 'recon'
             );
 
             try {
