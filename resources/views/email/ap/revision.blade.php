@@ -46,6 +46,7 @@
                                     <form id="frmEditor" class="form-horizontal" method="POST" action="{{url('/api/ap/update')}}" enctype="multipart/form-data">
                                     @csrf
                                         <input type="text" id="entity_cd" name="entity_cd" value="<?php echo $entity_cd?>" hidden>
+                                        <input type="text" id="project_no" name="project_no" value="<?php echo $project_no?>" hidden>
                                         <input type="text" id="trx_type" name="trx_type" value="<?php echo $trx_type?>" hidden>
                                         <input type="text" id="doc_no" name="doc_no" value="<?php echo $doc_no?>" hidden>
                                         <input type="text" id="user_id" name="user_id" value="<?php echo $user_id?>" hidden>

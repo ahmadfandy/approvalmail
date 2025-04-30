@@ -98,6 +98,11 @@ class LastMail extends Mailable
                     ->subject('Approved : '.$this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
                     ->view('email.recon.last')
                     ->with(['data' => $this->dataEmail]);
+        }else if ($this->dataEmail['flag'] == 'INV') {
+            return $this->from($address = $this->dataEmail['email_profile_addr'], $name = $this->dataEmail['email_profile_name'])
+                    ->subject('Approved : '.$this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])
+                    ->view('email.ap.last')
+                    ->with(['data' => $this->dataEmail]);
         }  else {
             return $this->from($address = $this->dataEmail['email_profile_addr'], $name = $this->dataEmail['email_profile_name'])
                     ->subject('Approved : '.$this->dataEmail['module'].' No : '.$this->dataEmail['doc_no'].'  '.$this->dataEmail['entity_name'])

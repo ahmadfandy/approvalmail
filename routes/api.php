@@ -41,9 +41,9 @@ Route::POST('/porequest', [Invoice::class, 'mail']);
 Route::GET('/porequest/{entity_cd}/{trx_type}/{doc_no}/{user_id}/{level_no}/{status}/{profile}/{entity_name}/{logo}/{module}', [Invoice::class, 'changestatus']);
 Route::POST('/porequest/update', [Invoice::class, 'update']);
 
-Route::POST('/ap', [Ap::class, 'mail']);
-Route::GET('/ap/{entity_cd}/{trx_type}/{doc_no}/{user_id}/{level_no}/{status}/{profile}/{flag}/{entity_name}/{logo}/{module}', [Ap::class, 'changestatus']);
-Route::POST('/ap/update', [Ap::class, 'update']);
+Route::POST('/invoice', [Ap::class, 'mail']);
+Route::GET('/invoice/{entity_cd}/{project_no}/{trx_type}/{doc_no}/{user_id}/{level_no}/{status}/{profile}/{flag}/{entity_name}/{logo}/{module}', [Ap::class, 'changestatus']);
+Route::POST('/invoice/update', [Ap::class, 'update']);
 
 Route::POST('/contract', [contract::class, 'mail']);
 Route::GET('/contract/{entity_cd}/{project_no}/{trx_type}/{doc_no}/{user_id}/{level_no}/{status}/{profile}/{flag}/{entity_name}/{logo}/{module}', [contract::class, 'changestatus']);

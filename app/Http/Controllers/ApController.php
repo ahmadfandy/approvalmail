@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ApMail;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 
 class ApController extends Controller
@@ -38,6 +39,7 @@ class ApController extends Controller
         foreach ($email_addr as $email) {
             $dataEmail = array(
                 'entity_cd'     => $request->entity_cd,
+                'project_no'    => $request->project_no,
                 'trx_type'      => $request->trx_type,
                 'doc_no'        => $request->doc_no,
                 'user_id'       => $request->user_id,
@@ -48,7 +50,6 @@ class ApController extends Controller
                 'flag'          => $request->flag,
                 'descs'         => $request->descs,
                 'logo'          => $request->logo,
-                'pr_type'       => $request->pr_type,
                 'module'        => $request->module,
                 'amount'        => $request->amount,
                 'user_name'     => $request->user_name,
@@ -59,23 +60,26 @@ class ApController extends Controller
                 'email_addr'    => $email,
                 'email_profile_addr'    => $request->email_profile_addr,
                 'email_profile_name'    => $request->email_profile_name,
-                'link'          => 'ap'
+                'link'          => 'invoice'
             );
 
-            $sendToEmail = strtolower($email);
-            if(isset($sendToEmail) && !empty($sendToEmail) && filter_var($sendToEmail, FILTER_VALIDATE_EMAIL))
-            {
-                Mail::to($sendToEmail)
-                    ->send(new ApMail($dataEmail));
-                $callback['Error'] = false;
-                $callback['Pesan'] = 'sendToEmail';
-                echo json_encode($callback);
+            try {
+                $sendToEmail = strtolower($email);
+                if(isset($sendToEmail) && !empty($sendToEmail) && filter_var($sendToEmail, FILTER_VALIDATE_EMAIL))
+                {
+                    Mail::to($sendToEmail)->send(new ApMail($dataEmail));
+                    Log::channel('sendmail')->info('Email send to '.$sendToEmail.' Doc No : '.$request->doc_no);
+                    return 'Email berhasil dikirim';
+                }
+            } catch (\Exception $e) {
+                Log::channel('sendmail')->error('Gagal mengirim email: ' . $e->getMessage());              
+                return "Gagal mengirim email. Cek log untuk detailnya.";
             }
         }
         
     }
 
-    public function changestatus($entity_cd='', $trx_type='', $doc_no='', $user_id='', $level_no='', $status='', $profile='', $flag='', $entity_name='', $logo='', $module='')
+    public function changestatus($entity_cd='',$project_no='', $trx_type='', $doc_no='', $user_id='', $level_no='', $status='', $profile='', $flag='', $entity_name='', $logo='', $module='')
     {
         $entity_name_r = str_replace('+', ' ', $entity_name);
         $module_r = str_replace('+', ' ', $module);
@@ -111,15 +115,15 @@ class ApController extends Controller
             if($status == 'A') {
                 $reason = '';
                 $pdo = DB::connection('INPP_EMAIL')->getPdo();
-                $sth = $pdo->prepare("SET NOCOUNT ON; EXEC mgr.x_approval_mail ?, ?, ?, ?, ?, ?, ?, ?, ?;");
+                $sth = $pdo->prepare("SET NOCOUNT ON; EXEC mgr.x_approval_mail_invoice ?, ?, ?, ?, ?, ?, ?, ?, ?;");
                 $sth->bindParam(1, $entity_cd);
-                $sth->bindParam(2, $trx_type);
-                $sth->bindParam(3, $doc_no);
-                $sth->bindParam(4, $user_id);
-                $sth->bindParam(5, $level_no);
-                $sth->bindParam(6, $status);
-                $sth->bindParam(7, $reason);
-                $sth->bindParam(8, $profile);
+                $sth->bindParam(2, $project_no);
+                $sth->bindParam(3, $trx_type);
+                $sth->bindParam(4, $doc_no);
+                $sth->bindParam(5, $user_id);
+                $sth->bindParam(6, $level_no);
+                $sth->bindParam(7, $status);
+                $sth->bindParam(8, $reason);
                 $sth->bindParam(9, $flag);
                 $sth->execute();
                 if ($sth == true) {
@@ -158,6 +162,7 @@ class ApController extends Controller
 
                 $dataRevision = array(
                     'entity_cd' => $entity_cd,
+                    'project_no' => $project_no,
                     'name'      => $name,
                     'bgcolor'      => $bgcolor,
                     'valuebt'      => $valuebt,
@@ -180,6 +185,7 @@ class ApController extends Controller
     public function update(Request $request)
     {
         $entity_cd = $request->entity_cd;
+        $project_no = $request->project_no;
         $trx_type = $request->trx_type;
         $doc_no = $request->doc_no;
         $user_id = $request->user_id;
@@ -192,15 +198,15 @@ class ApController extends Controller
         $entity_name = $request->entity_name;
         $logo = $request->logo;
         $pdo = DB::connection('INPP_EMAIL')->getPdo();
-        $sth = $pdo->prepare("SET NOCOUNT ON; EXEC mgr.x_approval_mail ?, ?, ?, ?, ?, ?, ?, ?, ?;");
+        $sth = $pdo->prepare("SET NOCOUNT ON; EXEC mgr.x_approval_mail_invoice ?, ?, ?, ?, ?, ?, ?, ?, ?;");
         $sth->bindParam(1, $entity_cd);
-        $sth->bindParam(2, $trx_type);
-        $sth->bindParam(3, $doc_no);
-        $sth->bindParam(4, $user_id);
-        $sth->bindParam(5, $level_no);
-        $sth->bindParam(6, $status);
-        $sth->bindParam(7, $reason);
-        $sth->bindParam(8, $profile);
+        $sth->bindParam(2, $project_no);
+        $sth->bindParam(3, $trx_type);
+        $sth->bindParam(4, $doc_no);
+        $sth->bindParam(5, $user_id);
+        $sth->bindParam(6, $level_no);
+        $sth->bindParam(7, $status);
+        $sth->bindParam(8, $reason);
         $sth->bindParam(9, $flag);
         $sth->execute();
         if ($sth == true) {
