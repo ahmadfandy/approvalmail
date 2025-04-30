@@ -150,13 +150,13 @@ class ApController extends Controller
                 if($status == 'R')
                 {
                     $name   = 'Revision';
-                    $bgcolor = '#f4bd0e';
+                    $bgcolor = '#E5C552';
                     $valuebt  = 'Modify';
                 } 
                 else if($status == 'C')
                 {
                     $name   = 'Cancellation';
-                    $bgcolor = '#f4bd0e';
+                    $bgcolor = '#E57257';
                     $valuebt  = 'Reject';
                 }
 

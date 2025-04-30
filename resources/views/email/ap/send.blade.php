@@ -35,14 +35,14 @@
                             </tr>
                         </tbody>
                     </table>
-                    <table style="width:100%;max-width:620px;margin:0 auto;background-color:#ffff67;">
+                    <table style="width:100%;max-width:620px;margin:0 auto;background-color:#E0E0DE;">
                         <tbody>
                             <tr>
                                 <td>
                                     <h5 style="padding: 30px 30px;text-align:left;margin-bottom: 24px; color: #000000; font-size: 20px; font-weight: 400; line-height: 28px;">Dear Mr./Mrs. {{ $data['user_name'] }}, </h5>
                                     <p style="padding-left: 30px;text-align:left;margin-bottom: 15px; color: #000000; font-size: 16px;">Kindly review this Invoice : <br>
-                                        <table style="padding-left: 40px;width: 100%; text-align:left;">
-                                        <tr style="vertical-align:top;">
+                                        <table style="padding-left: 40px;width: 100%; text-align:left;">                                           
+                                            <tr style="vertical-align:top;">
                                                 <td style="width :25%">Document No.</td>
                                                 <td style="width :2%">:</td>
                                                 <td >{{ $data['doc_no'] }}</td>
@@ -61,6 +61,7 @@
                                                     <div style="text-align:right;width:35%">{{ $data['amount'] }}</div>    
                                                 </td> -->
                                             </tr>
+                                            
                                         </table>
                                     </p>
                                     <br>
@@ -80,9 +81,9 @@
                                         <b>Thank you,</b><br>
                                         {{ $data['sender'] }}
                                     </p><br>
-                                    <a href="{{ url('api') }}/{{ $data['link'] }}/{{ $data['entity_cd'] }}/{{ $data['project_no'] }}/{{ $data['trx_type'] }}/{{ $data['doc_no'] }}/{{ $data['user_id'] }}/{{ $data['level_no'] }}/A/{{ $data['profile_name'] }}/{{ $data['flag'] }}/{{ $data['entity_name'] }}/{{ $data['logo'] }}/{{ $data['module'] }}" style="display: inline-block; font-size: 13px; font-weight: 600; line-height: 20px; text-align: center; text-decoration: none; text-transform: uppercase; padding: 10px 40px; background-color: #1ee0ac; border-radius: 4px; color: #ffffff;">Approve</a>
-                                    <a href="{{ url('api') }}/{{ $data['link'] }}/{{ $data['entity_cd'] }}/{{ $data['project_no'] }}/{{ $data['trx_type'] }}/{{ $data['doc_no'] }}/{{ $data['user_id'] }}/{{ $data['level_no'] }}/R/{{ $data['profile_name'] }}/{{ $data['flag'] }}/{{ $data['entity_name'] }}/{{ $data['logo'] }}/{{ $data['module'] }}" style="display: inline-block; font-size: 13px; font-weight: 600; line-height: 20px; text-align: center; text-decoration: none; text-transform: uppercase; padding: 10px 40px; background-color: #f4bd0e; border-radius: 4px; color: #ffffff;">Modify</a>
-                                    <a href="{{ url('api') }}/{{ $data['link'] }}/{{ $data['entity_cd'] }}/{{ $data['project_no'] }}/{{ $data['trx_type'] }}/{{ $data['doc_no'] }}/{{ $data['user_id'] }}/{{ $data['level_no'] }}/C/{{ $data['profile_name'] }}/{{ $data['flag'] }}/{{ $data['entity_name'] }}/{{ $data['logo'] }}/{{ $data['module'] }}" style="display: inline-block; font-size: 13px; font-weight: 600; line-height: 20px; text-align: center; text-decoration: none; text-transform: uppercase; padding: 10px 40px; background-color: #e85347; border-radius: 4px; color: #ffffff;">Reject</a>
+                                    <a href="{{ url('api') }}/{{ $data['link'] }}/{{ $data['entity_cd'] }}/{{ $data['project_no'] }}/{{ $data['trx_type'] }}/{{ $data['doc_no'] }}/{{ $data['user_id'] }}/{{ $data['level_no'] }}/A/{{ $data['profile_name'] }}/{{ $data['flag'] }}/{{ $data['entity_name'] }}/{{ $data['logo'] }}/{{ $data['module'] }}" style="display: inline-block; font-size: 13px; font-weight: 600; line-height: 20px; text-align: center; text-decoration: none; text-transform: uppercase; padding: 10px 40px; background-color: #94B960; border-radius: 4px; color: #ffffff;">Approve</a>
+                                    <a href="{{ url('api') }}/{{ $data['link'] }}/{{ $data['entity_cd'] }}/{{ $data['project_no'] }}/{{ $data['trx_type'] }}/{{ $data['doc_no'] }}/{{ $data['user_id'] }}/{{ $data['level_no'] }}/R/{{ $data['profile_name'] }}/{{ $data['flag'] }}/{{ $data['entity_name'] }}/{{ $data['logo'] }}/{{ $data['module'] }}" style="display: inline-block; font-size: 13px; font-weight: 600; line-height: 20px; text-align: center; text-decoration: none; text-transform: uppercase; padding: 10px 40px; background-color: #E5C552; border-radius: 4px; color: #ffffff;">Modify</a>
+                                    <a href="{{ url('api') }}/{{ $data['link'] }}/{{ $data['entity_cd'] }}/{{ $data['project_no'] }}/{{ $data['trx_type'] }}/{{ $data['doc_no'] }}/{{ $data['user_id'] }}/{{ $data['level_no'] }}/C/{{ $data['profile_name'] }}/{{ $data['flag'] }}/{{ $data['entity_name'] }}/{{ $data['logo'] }}/{{ $data['module'] }}" style="display: inline-block; font-size: 13px; font-weight: 600; line-height: 20px; text-align: center; text-decoration: none; text-transform: uppercase; padding: 10px 40px; background-color: #E57257; border-radius: 4px; color: #ffffff;">Reject</a>
                                     <br><br><br><div style="text-align:left;color: #000000; font-size: 13px;">
                                         <i>*note : do not reply this email</i>
                                     </div>
