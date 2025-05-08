@@ -49,6 +49,7 @@ class ApController extends Controller
                 'profile_name'  => $request->profile_name,
                 'flag'          => $request->flag,
                 'descs'         => $request->descs,
+                'creditor_name' => $request->creditor_name,
                 'logo'          => $request->logo,
                 'module'        => $request->module,
                 'amount'        => $request->amount,

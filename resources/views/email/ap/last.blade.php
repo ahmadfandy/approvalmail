@@ -52,6 +52,11 @@
                                                 <td style="width :2%">:</td>
                                                 <td >{{ $data['descs'] }}</td>
                                             </tr>
+                                            <tr style="vertical-align:top;">
+                                                <td style="width :25%">Supplier/Contractor</td>
+                                                <td style="width :2%">:</td>
+                                                <td >{{ $data['creditor_name'] }}</td>
+                                            </tr>
                                             <tr>
                                                 <td>Amount</td>
                                                 <td>:</td>
