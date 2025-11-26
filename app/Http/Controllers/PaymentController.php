@@ -92,7 +92,7 @@ class PaymentController extends Controller
             'trx_type'      => $trx_type,
         );
 
-        $query = DB::connection('INPP_EMAIL')
+        $query = DB::connection('INPP')
         ->table('mgr.ap_authorized_person')
         ->where($where2)
         ->get();
@@ -114,7 +114,7 @@ class PaymentController extends Controller
         } else {
             if($status == 'A') {
                 $reason = '';
-                $pdo = DB::connection('INPP_EMAIL')->getPdo();
+                $pdo = DB::connection('INPP')->getPdo();
                 $sth = $pdo->prepare("SET NOCOUNT ON; EXEC mgr.x_approval_mail_payment ?, ?, ?, ?, ?, ?, ?, ?, ?;");
                 $sth->bindParam(1, $entity_cd);
                 $sth->bindParam(2, $project_no);
@@ -197,7 +197,7 @@ class PaymentController extends Controller
         $module = $request->module;
         $entity_name = $request->entity_name;
         $logo = $request->logo;
-        $pdo = DB::connection('INPP_EMAIL')->getPdo();
+        $pdo = DB::connection('INPP')->getPdo();
         $sth = $pdo->prepare("SET NOCOUNT ON; EXEC mgr.x_approval_mail_payment ?, ?, ?, ?, ?, ?, ?, ?, ?;");
         $sth->bindParam(1, $entity_cd);
         $sth->bindParam(2, $project_no);
