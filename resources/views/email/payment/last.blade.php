@@ -61,6 +61,11 @@
                                                     <div style="text-align:right;width:35%">{{ $data['amount'] }}</div>    
                                                 </td> -->
                                             </tr>
+                                            <tr style="vertical-align:top;">
+                                                <td style="width :25%">Fin Estimated Payment</td>
+                                                <td style="width :2%">:</td>
+                                                <td >{{ $data['est_pay'] }}</td>
+                                            </tr>
                               
                                         </table>
                                     </p><br>

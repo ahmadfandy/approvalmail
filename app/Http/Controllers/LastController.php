@@ -64,6 +64,7 @@ class LastController extends Controller
                 'period'      => $request->period,
                 'pr_descs'        => $request->pr_descs,
                 'amount'        => $request->amount,
+                'est_pay'       => $request->est_pay,
                 'cost_cd_descs' => $request->cost_cd_descs,
                 'base'          => $request->base,
                 'tax'           => $request->tax,

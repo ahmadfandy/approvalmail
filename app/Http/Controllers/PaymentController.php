@@ -51,6 +51,7 @@ class PaymentController extends Controller
                 'logo'          => $request->logo,
                 'module'        => $request->module,
                 'amount'        => $request->amount,
+                'est_pay'       => $request->est_pay,
                 'user_name'     => $request->user_name,
                 'url_file'      => $link,
                 'file_name'     => $link2,
